@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-    @lamps = Lamp.all
-  end
-
   def new
     @user = User.new
   end
@@ -11,10 +7,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: "Welcome"
+      redirect_to @user, notice: "Welcome"
     else
       redirect_to new_user_path
     end
+  end
+
+  def show
+    @lamps = Lamp.all
   end
 
   private
