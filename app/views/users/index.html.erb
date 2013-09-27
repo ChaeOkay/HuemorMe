@@ -1,0 +1,14 @@
+<h1>Lamps</h1>
+
+<%= flash[:notice] %>
+<ul>
+  <% @lamps.each do |lamp| %>
+  <li>
+    <div>
+      <div><%= lamp.name %></div>
+      <div><%= button_to "Switch #{!lamp.on}", lamp, action: "update", method: "patch" %></div>
+    </div>
+  </li>
+
+  <% end %>
+</ul>
