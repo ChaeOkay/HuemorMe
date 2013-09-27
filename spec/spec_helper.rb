@@ -14,6 +14,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+  config.include AuthenticationHelper
   config.use_transactional_fixtures = false
 
   config.before(:suite) do

@@ -13,10 +13,24 @@
         1,
         null
       ],
+      "/Users/chae/01_DBC/DBC/huemorme/app/models/lamp.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/chae/01_DBC/DBC/huemorme/app/controllers/users_controller.rb": [
         1,
+        null,
         1,
-        2,
+        1,
+        null,
+        null,
+        1,
+        1,
         null,
         null,
         1,
@@ -40,9 +54,28 @@
         null,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/chae/01_DBC/DBC/huemorme/lib/authentication.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
         null
       ]
     },
-    "timestamp": 1380244455
+    "timestamp": 1380259373
   }
 }
