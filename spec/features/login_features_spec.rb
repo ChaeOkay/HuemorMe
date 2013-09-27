@@ -8,7 +8,7 @@ feature 'Login' do
       fill_in "session_email", with: user.email
       fill_in "session_password", with: user.password
       click_button "login"
-      page.current_path.should eq users_path
+      page.current_path.should eq user_path(user)
     end
   end
 end
