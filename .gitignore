@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore coverage files
+coverage
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -16,3 +19,4 @@
 /tmp
 
 .DS_Store
+
