@@ -1,5 +1,6 @@
 Huemorme::Application.routes.draw do
   resources :users, except: :destroy
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :lamps
   #   resources :bridges
