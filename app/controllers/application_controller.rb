@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include Authentication #see lib
+  include RegisterBridge
 
   helper_method :current_user, :logged_in?
 end

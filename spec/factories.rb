@@ -12,4 +12,9 @@ FactoryGirl.define do
     on false
   end
 
+  factory :bridge do
+    user_id { 1 }
+    ip { "192.168.0.152" }
+  end
+
 end
