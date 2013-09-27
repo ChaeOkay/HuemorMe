@@ -58,10 +58,10 @@ module Hue
       response = MultiJson.load(Net::HTTP.get(URI.parse("http://#{bridge.ip}/api/#{@username}")))
       if response.is_a? Array
         response = response.first
-      end
-
-      if error = response['error']
+      elsif error = response['error']
         parse_error(error)
+      else
+        p "Didn't work"
       end
       response['success']
     end
@@ -90,7 +90,7 @@ module Hue
       # Raise error
       raise klass.new(error['description'])
       rescue  Hue::UnauthorizedUser
-      register_user
+      # register_user
     end
   end
 end
