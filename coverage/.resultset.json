@@ -1,11 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/chae/01_DBC/DBC/huemorme/app/helpers/application_helper.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/chae/01_DBC/DBC/huemorme/app/models/user.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/app/models/user.rb": [
         1,
         null,
         1,
@@ -13,7 +13,7 @@
         1,
         null
       ],
-      "/Users/chae/01_DBC/DBC/huemorme/app/models/lamp.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/app/models/lamp.rb": [
         1,
         1,
         null,
@@ -22,7 +22,7 @@
         null,
         null
       ],
-      "/Users/chae/01_DBC/DBC/huemorme/app/controllers/users_controller.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -49,7 +49,7 @@
         null,
         null
       ],
-      "/Users/chae/01_DBC/DBC/huemorme/app/controllers/application_controller.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -60,7 +60,7 @@
         1,
         null
       ],
-      "/Users/chae/01_DBC/DBC/huemorme/lib/authentication.rb": [
+      "/Users/TheRainMonster/Desktop/HuemorMe/lib/authentication.rb": [
         1,
         1,
         0,
@@ -76,6 +76,6 @@
         null
       ]
     },
-    "timestamp": 1380259373
+    "timestamp": 1380296284
   }
 }
