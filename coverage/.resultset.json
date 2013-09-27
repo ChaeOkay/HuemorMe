@@ -12,8 +12,37 @@
         1,
         1,
         null
+      ],
+      "/Users/chae/01_DBC/DBC/huemorme/app/controllers/users_controller.rb": [
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/chae/01_DBC/DBC/huemorme/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
       ]
     },
-    "timestamp": 1380237463
+    "timestamp": 1380244455
   }
 }
