@@ -9,8 +9,6 @@ module Hue
       unless USERNAME_RANGE.include?(username.length)
         raise InvalidUsername, "Usernames must be between #{USERNAME_RANGE.first} and #{USERNAME_RANGE.last}."
       end
-      p '*' * 50
-      p "you're in initialize"
       @username = username
       validate_user
     end
@@ -58,8 +56,6 @@ module Hue
 
     def validate_user
       response = MultiJson.load(Net::HTTP.get(URI.parse("http://#{bridge.ip}/api/#{@username}")))
-      p '$' * 50
-      p response
       if response.is_a? Array
         response = response.first
       end
@@ -93,7 +89,7 @@ module Hue
 
       # Raise error
       raise klass.new(error['description'])
-    rescue  Hue::UnauthorizedUser
+      rescue  Hue::UnauthorizedUser
       register_user
     end
   end
