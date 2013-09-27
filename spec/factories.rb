@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :bridge do
-    user_id { 1 }
+    user
     ip { "192.168.0.152" }
   end
 
