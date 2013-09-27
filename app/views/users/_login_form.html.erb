@@ -1,0 +1,9 @@
+<%= form_for :session, :url => sessions_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= @user.errors[:email].join(',') %></br>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= @user.errors[:password].join(',') %></br>
+  <%= f.submit "login" %>
+<% end %>
