@@ -13,4 +13,16 @@ feature User do
       expect(page).to have_content("Welcome")
     end
   end
+
+  # context "turn on light" do
+  #   let(:user) { build(:user) }
+
+  #   it "should change off button to on" do
+  #     user.stub(:lamps) { [ {"lamp1" => {"status" => { "on" => false }}} ] }
+
+  #     visit users_path
+  #     click_button "on"
+  #     expect( page.find(:css, '#lamp1').text ).to eq "off"
+  #   end
+  # end
 end
