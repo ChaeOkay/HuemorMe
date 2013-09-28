@@ -5,13 +5,12 @@ class BridgesController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id]) #stub
     ip = get_local_ip
-    bridge = Bridge.new(user_id: user.id, ip: ip ) #stub
+    bridge = Bridge.new(user_id: current_user.id, ip: ip )
     
     bridge_response = register_user(ip)
     if bridge_response['error']
-      redirect_to new_user_bridge_path(user), notice: "Parse the error" #stub
+      redirect_to new_user_bridge_path(current_user), notice: "Parse the error"
     else
       bridge.save
       redirect_to bridge_path(bridge)

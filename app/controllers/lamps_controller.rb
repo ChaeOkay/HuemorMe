@@ -2,15 +2,19 @@ class LampsController < ApplicationController
 
   def create
     bridge = Bridge.find(params[:bridge_id])
-    uri = URI.parse("http://#{bridge.ip}/api/1234567890") # stubbed username
-    bridge_response = MultiJson.load(Net::HTTP.get(uri))
+    bridge_response = get_lights(bridge)
     bridge_response['lights'].keys.each do |lamp|
       new_lamp = Lamp.new(bridge: bridge, hue_number: lamp)
       unless new_lamp.save
-        redirect_to bridge_path(bridge), notice: new_lamp.errors.full_messages
+        flash[:message] = "Error finding lamp"
       end
     end
-    redirect_to user_path(current_user)
+
+    if flash[:message]
+      redirect_to bridge_path(bridge)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def update

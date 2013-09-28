@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   include Authentication #see lib
   include RegisterBridge
+  include RegisterLamps
 
   helper_method :current_user, :logged_in?
 end
