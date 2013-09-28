@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Lamp do
+
+  it { should belong_to :bridge }
+  it { should validate_presence_of :hue_number }
+
   context "new" do
     let(:lamp) { build(:lamp) }
     it "should have an on status of false" do
