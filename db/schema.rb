@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927044359) do
+ActiveRecord::Schema.define(version: 20130928020257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bridges", force: true do |t|
+    t.string   "ip"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lamps", force: true do |t|
     t.string  "name"
-    t.boolean "on",   default: false
+    t.boolean "on",         default: false
+    t.integer "bridge_id"
+    t.string  "hue_number"
   end
 
   create_table "users", force: true do |t|
@@ -28,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130927044359) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
 end

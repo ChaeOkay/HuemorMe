@@ -6,6 +6,7 @@ feature User do
       visit root_path
       fill_in "user_first_name", with: "jimmy"
       fill_in "user_last_name", with: "wong"
+      fill_in "user_username", with: "jws_lights"
       fill_in "user_email", with: "test@test.com"
       fill_in "user_password", with: "password"
       fill_in "user_password_confirmation", with: "password"

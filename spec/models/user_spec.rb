@@ -6,6 +6,7 @@ describe User do
   it { should validate_presence_of :last_name }
   it { should validate_presence_of :email }
   it { should validate_presence_of :password }
+  it { should validate_presence_of :username }
 
   context "with non-unique email" do
     let(:user) { build(:user) }
@@ -13,7 +14,8 @@ describe User do
       user2 = User.create(email: "test@test.com",
                   first_name: "hi",
                   last_name: "bye",
-                  password: "test")
+                  password: "test",
+                  username: "username_test")
       expect(user2).to be_invalid
     end
   end
