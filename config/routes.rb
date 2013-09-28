@@ -5,11 +5,12 @@ Huemorme::Application.routes.draw do
   end
 
   resources :bridges do
-    resources :lamps
+    resources :lamps do
+      put :
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  
+
   root to: "users#new"
 
   match '/signout', to: 'sessions#destroy',     via: 'delete'

@@ -17,10 +17,11 @@ class LampsController < ApplicationController
     end
   end
 
-  def update
-    @lamp = Lamp.find(params[:id])
-    @lamp.turn_on_off
-    @lamp.save
-    redirect_to users_path, notice: "Lamp is switched #{@lamp.on}"
+  def toggle
+    lamp = Lamp.find(params[:id])
+    lamp.turn_on_off
+    binding.pry
+
+    redirect_to user_path, notice: "Lamp is switched #{@lamp.on}"
   end
 end
