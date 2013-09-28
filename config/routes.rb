@@ -5,8 +5,7 @@ Huemorme::Application.routes.draw do
   end
 
   resources :bridges do
-    resources :lamps do
-      put :
+    resources :lamps
   end
 
   resources :sessions, only: [:new, :create, :destroy]
