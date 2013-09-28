@@ -6,6 +6,7 @@ FactoryGirl.define do
     email "test@test.com"
     password "password"
     password_confirmation "password"
+    username "username_test"
   end
 
   factory :lamp do
@@ -14,7 +15,7 @@ FactoryGirl.define do
 
   factory :bridge do
     user
-    ip { "192.168.0.152" }
+    ip { "000.000.0.000" }
   end
 
 end
