@@ -12,6 +12,9 @@
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= @user.errors[:email].join(',') %></br>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= @user.errors[:username].join(',') %></br>
   <%= f.label :password %>
   <%= f.text_field :password %>
   <%= @user.errors[:password].join(',') %></br>

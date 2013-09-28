@@ -1,0 +1,10 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+"Push the button"
+
+<%= form_for [current_user, @bridge] do |f| %>
+  <%= f.submit "Register Your Bridge" %>
+<% end %>
+
