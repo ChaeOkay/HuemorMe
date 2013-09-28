@@ -16,6 +16,7 @@ feature 'Sessions' do
     let(:user) { create(:user) }
 
     it 'should redirect to index page' do
+      current_user(user)
       logged_in?
       visit user_path(user)
       click_button('logout')
