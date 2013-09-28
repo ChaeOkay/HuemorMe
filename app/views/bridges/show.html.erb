@@ -1,0 +1,8 @@
+<h3>We've found your bridge!</h3>
+
+<%= flash[:notice] %>
+
+<p>Click here to find your lamps:</p>
+
+<%= button_to "Add Lamps", {:controller => :lamps,
+    :action => 'create', :bridge_id => @bridge.id }, :method => 'post' %>

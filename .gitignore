@@ -20,3 +20,8 @@ coverage
 
 .DS_Store
 
+/coverage/.resultset.json
+/coverage/.last_run.json
+
+*.rvmrc*
+/.rvmrc.*
