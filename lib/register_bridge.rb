@@ -8,12 +8,14 @@ module RegisterBridge
 
   def register_user(bridge_ip)
     body = {
-      devicetype: "Ruby Web Application",
-      username: '1234567890' #stub
+      devicetype: "HuemorMe",
+      username: current_user.username
     }
 
     uri = URI.parse("http://#{bridge_ip}/api")
     http = Net::HTTP.new(uri.host)
-    response = MultiJson.load(http.request_post(uri.path, MultiJson.dump(body)).body).first
+    MultiJson.load(http.request_post(uri.path, MultiJson.dump(body)).body).first
   end
+
+
 end

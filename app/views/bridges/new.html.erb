@@ -4,7 +4,7 @@
 
 "Push the button"
 
-<%= form_for [User.find(1), @bridge] do |f| %>
+<%= form_for [current_user, @bridge] do |f| %>
   <%= f.submit "Register Your Bridge" %>
 <% end %>
 
