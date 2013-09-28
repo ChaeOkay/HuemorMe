@@ -1,26 +1,35 @@
-<h1>Sign Up</h1>
 
-<%= flash[:success] %>
 
-<%= form_for @user, :url => users_path do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= @user.errors[:first_name].join(',') %></br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= @user.errors[:last_name].join(',') %></br>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= @user.errors[:email].join(',') %></br>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= @user.errors[:username].join(',') %></br>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-  <%= @user.errors[:password].join(',') %></br>
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
-  <%= @user.errors[:password_confirmation].join(',') %></br>
-  <%= f.submit "sign up" %>
-<% end %>
+<div class="row">
+  <div class="large-3 large-offset-9 columns">
+    <%= render '/layouts/login_form' %>
+  </div>
+<div class="large-4 large-offset-4 columns">
+  <h1>Sign Up</h1>
 
+  <%= flash[:success] %>
+
+  <%= form_for @user, :url => users_path do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= @user.errors[:first_name].join(',') %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= @user.errors[:last_name].join(',') %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= @user.errors[:email].join(',') %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= @user.errors[:username].join(',') %>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    <%= @user.errors[:password].join(',') %>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
+    <%= @user.errors[:password_confirmation].join(',') %>
+    <%= f.submit "sign up" %>
+  <% end %>
+
+</div>
+</div>
