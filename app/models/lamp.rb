@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Lamp < ActiveRecord::Base
   validates_inclusion_of :on, :in => [true, false]
   validates :hue_number, presence: true

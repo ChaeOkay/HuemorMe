@@ -1,7 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-include 'net/http'
-
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
