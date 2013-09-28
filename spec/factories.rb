@@ -10,12 +10,15 @@ FactoryGirl.define do
   end
 
   factory :lamp do
+    name "kitchen"
     on false
+    hue_number "1"
+    bridge
   end
 
   factory :bridge do
     user
-    ip { "000.000.0.000" }
+    ip "000.000.0.000"
   end
 
 end

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login @user 
+      login @user
       redirect_to user_path(@user), notice: "Welcome #{@user.first_name}"
     else
       redirect_to new_user_path
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @lamps = Lamp.all
+    @bridge = current_user.bridges.first
   end
 
   private
