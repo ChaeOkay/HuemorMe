@@ -1,7 +1,16 @@
-<div>
-	<% if logged_in? %>
-		<%= button_to "logout", signout_path, method: "delete" %>
-	<% else %>
-		<%= render '/layouts/login_form' %>
-	<% end %>
+<div class="contain-to-grid">
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1><%= link_to "HueMore Me", root_path %></h1>
+			</li>
+		</ul>
+			<ul class="right">
+				<li class="divider"></li>
+				<% if logged_in? %>
+					<%= button_to "logout", signout_path, method: "delete", class: 'button' %>
+				<% end %>
+			</ul>
+	</nav>
 </div>
+
