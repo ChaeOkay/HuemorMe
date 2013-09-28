@@ -17,7 +17,7 @@ class LampsController < ApplicationController
     end
   end
 
-  def toggle
+  def update
     lamp = Lamp.find(params[:id])
     lamp.turn_on_off
     binding.pry
