@@ -8,4 +8,9 @@ class SessionsController < ApplicationController
       redirect_to new_user_path, notice: "Invalid email/password combination"
     end
   end
+
+  def destroy
+  	reset_session
+    redirect_to root_path
+  end
 end

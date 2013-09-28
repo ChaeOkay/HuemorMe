@@ -1,0 +1,7 @@
+<div>
+	<% if logged_in? %>
+		<%= button_to "logout", signout_path, method: "delete" %>
+	<% else %>
+		<%= render '/layouts/login_form' %>
+	<% end %>
+</div>
