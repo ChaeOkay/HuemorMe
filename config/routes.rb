@@ -1,14 +1,14 @@
 Huemorme::Application.routes.draw do
 
-  resources :users, except: [:destroy, :index] do
-    resources :bridges
+  resources :users, only: [:new, :create, :show] do
+    resources :bridges, only: [:new, :create]
   end
 
-  resources :bridges do
-    resources :lamps
+  resources :bridges, only: [:show] do
+    resources :lamps, only: [:create, :update]
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:create, :destroy]
 
   root to: "users#new"
 
