@@ -9,7 +9,7 @@ feature 'Lamps' do
       bridge.lamps << Lamp.create(name: "Livingrm", hue_number: "2")
       Lamp.any_instance.stub(:on?){ false }
       visit user_path(bridge.user)
-      expect(page.body).to include("Switch on")
+      expect(page.body).to include("Turn on?")
     end
 
   end
