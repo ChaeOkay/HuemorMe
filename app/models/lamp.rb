@@ -17,6 +17,10 @@ class Lamp < ActiveRecord::Base
     state['on'] ? true : false
   end
 
+  def say_on_off
+    on? ? "off" : "on"
+  end
+
   def base_uri
     "http://#{self.bridge.ip}/api/1234567890/lights/#{self.hue_number}" #stub
   end

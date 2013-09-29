@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LampsController do
   context "POST #create" do
-    let!(:bridge) { FactoryGirl.create(:bridge) }
+    let!(:bridge) { create(:bridge) }
 
     before do
       controller.stub(:bridge).and_return(bridge)
@@ -15,9 +15,10 @@ describe LampsController do
 
     it "redirects to bridge show with invalid lamp info" do
       controller.stub(:get_lights).and_return({"lights" => {nil => {}}})
-      
+
       post :create, bridge_id: bridge
       expect { response }.to redirect_to bridge_path(bridge)
     end
   end
+
 end
