@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @lamps = Lamp.all
+    @lamps = current_user.lamps
     @bridge = current_user.bridges.first
   end
 
