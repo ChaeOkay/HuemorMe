@@ -2,14 +2,8 @@ class LampsController < ApplicationController
 
   def create
     bridge = Bridge.find(params[:bridge_id])
-    bridge_response = get_lights(bridge)
-    bridge_response['lights'].keys.each do |lamp|
-      new_lamp = Lamp.new(bridge: bridge, hue_number: lamp)
-      unless new_lamp.save
-        flash[:message] = "Error finding lamp"
-        redirect_to bridge_path(bridge)
-        return
-      end
+    get_lights(bridge).each do |lamp|
+      Lamp.create(bridge: bridge, hue_number: lamp)
     end
     redirect_to user_path(current_user)
   end
