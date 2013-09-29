@@ -12,7 +12,7 @@ class Lamp < ActiveRecord::Base
 
   def turn_on_off
     body = on? ? {'on' => false} : {'on' => true}
-    address.request_put(uri.path, MultiJson.dump(body))
+    address.request_put(parsed_uri.path, MultiJson.dump(body))
   end
 
   def say_on_off
@@ -23,8 +23,11 @@ class Lamp < ActiveRecord::Base
   private
 
   def address
-    uri = URI.parse("#{base_uri}/state")
-    Net::HTTP.new(uri.host)
+    Net::HTTP.new(parsed_uri.host)
+  end
+
+  def parsed_uri
+    URI.parse("#{base_uri}/state")
   end
 
   def base_uri
