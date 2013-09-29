@@ -17,6 +17,7 @@ FactoryGirl.define do
   end
 
   factory :lamp do
+    bridge
     name "kitchen"
     on false
     hue_number "1"
