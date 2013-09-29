@@ -3,6 +3,6 @@
 
 <%= form_for :session, :url => sessions_path do |f| %>
   <%= f.text_field :email %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password %>
   <%= f.submit "login" %>
 <% end %>
