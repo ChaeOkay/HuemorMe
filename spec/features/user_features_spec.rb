@@ -29,9 +29,7 @@ feature User do
       Lamp.any_instance.stub(:turn_on_off) { false }      
 
       visit user_path(bridge.user)
-
       click_button "Switch on"
-
       expect(body).to include("Lamp is switched on")
     end
   end
