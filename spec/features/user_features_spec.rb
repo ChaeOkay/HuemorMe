@@ -17,50 +17,24 @@ feature User do
   end
 
   context "user dashboard features" do
-    let(:user) { build(:user) }
-    let(:bridge) { FactoryGirl.build(:bridge, user: user) }
-    let(:lamp) { FactoryGirl.build(:lamp, name: "lamp1") }
-    before { @lamps = [lamp] }
-    subject { @lamps }
+    let(:bridge) { FactoryGirl.create :bridge }
+    let(:lamp) { FactoryGirl.create :lamp, bridge: bridge }
+    it "clicking button should flash notice that lamp is on" do
+      current_user(bridge.user)
+      bridge.lamps << lamp
 
-    it "user should see all of their lamps" do
-      assigns(:lamps, [lamp])
-      current_user(user)
-      visit user_path(user)
-      #binding.pry
-   #    expect(page.body).to include("lamp1")
-   #  end
-   # assign(:widgets, [
-   #    stub_model(Widget, :name => "slicer"),
-   #    stub_model(Widget, :name => "dicer")
-   #  ])
+      Lamp.any_instance.stub(:on?) { false }
 
-      render
+      # The stub value is inconsequential, just cancelling the HTTP request
+      Lamp.any_instance.stub(:turn_on_off) { false }      
 
-      rendered.should contain("lamp1")
-      end
+      visit user_path(bridge.user)
 
+      click_button "Switch on"
 
-    it "clicking should change off button to on" do
-      current_user(user)
-      visit user_path(user)
-
-      lamp.stub(:say_on_off) { "on" }
-      #lamp.stub_chain(:say_on_off, :on?).and_return("off")
-      lamp.stub(:on?) { false }
-
-
-      #binding.pry
-      click_button "Switch #{lamp.say_on_off}"
-      # lamp.say_on_off.on?.should eq("off")
-      #lamp.any_instance.stub(:on?).and_return( false )
-      
-      #click_button "Switch off"
-      #expect(lamp.say_on_off).to eq("off")
-      expect( page.find(:css, '#{lamp1}').text ).to eq "off"
+      expect(body).to include("Lamp is switched on")
     end
   end
 end
-      #subject.stub_chain(:one, :two, :three).and_return(:four)
-      #subject.one.two.three.should eq(:four)
+
  
