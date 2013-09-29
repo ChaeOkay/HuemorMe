@@ -20,6 +20,7 @@ FactoryGirl.define do
   factory :bridge do
     user
     ip "000.000.0.000"
+    id "0000000000000000"
   end
 
 end

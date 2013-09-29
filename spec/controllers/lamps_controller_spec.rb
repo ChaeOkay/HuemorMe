@@ -9,15 +9,13 @@ describe LampsController do
     end
 
     it "increases lamp count when create new lamp" do
-      controller.stub(:get_lights).and_return({"lights" => {"1" => {}, "2" => {}, "3" => {} }})
+      controller.stub(:get_lights).and_return(["1", "2", "3"])
       expect { post :create, bridge_id: bridge }.to change { Lamp.all.count }.by(3)
     end
 
     it "redirects to bridge show with invalid lamp info" do
-      controller.stub(:get_lights).and_return({"lights" => {nil => {}}})
-
-      post :create, bridge_id: bridge
-      expect { response }.to redirect_to bridge_path(bridge)
+      controller.stub(:get_lights).and_return([])
+      expect { post :create, bridge_id: bridge }.not_to change{ Lamp.all.count }
     end
   end
 
