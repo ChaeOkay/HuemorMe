@@ -10,7 +10,7 @@ class LampsController < ApplicationController
 
   def update
     @lamp = Lamp.find(params[:id])
-    @lamp.turn_on_off
+    @lamp.send_command(params[:lamp][:command])
     redirect_to user_path(current_user)
   end
 end
