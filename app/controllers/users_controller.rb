@@ -15,8 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @lamps = Lamp.all
-    @bridge = current_user.bridges.first
+    user = User.find(params[:id])
+    if user.bridges.empty?
+      redirect_to new_user_bridge_path(user)
+    else
+      @lamps = Lamp.all
+      @bridge = current_user.bridges.first
+    end
   end
 
   private
