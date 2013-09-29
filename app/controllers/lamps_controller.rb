@@ -20,7 +20,7 @@ class LampsController < ApplicationController
   def update
     @lamp = Lamp.find(params[:id])
     @lamp.turn_on_off
-    @lamp.save
-    redirect_to users_path, notice: "Lamp is switched #{@lamp.on}"
+
+    redirect_to user_path(current_user), notice: "Lamp is switched #{@lamp.say_on_off}"
   end
 end
