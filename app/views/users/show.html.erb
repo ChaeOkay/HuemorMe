@@ -6,6 +6,7 @@
   <li>
     <div>
       <div><%= lamp.name %></div>
+      <% binding.pry %>
       <div><%= button_to "Switch #{lamp.say_on_off}", bridge_lamp_path(lamp.bridge, lamp), action: "update", method: "patch" %></div>
     </div>
   </li>
