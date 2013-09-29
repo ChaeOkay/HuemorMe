@@ -9,22 +9,35 @@ class Lamp < ActiveRecord::Base
     self.send(command)
   end
 
-  def on?
-    state['on'] ? true : false
-  end
-
   def say_on_off
     on? ? "off" : "on"
+  end
+
+  def say_colorloop
+    colorloop? ? "off" : "on"
   end
 
 
   private
   # Methods for bridge command
-  def turn_on_off
+  def toggle_on_off
     body = on? ? {'on' => false} : {'on' => true}
     update_lamp(body)
   end
 
+  def on?
+    state['on']
+  end
+
+
+  def toggle_colorloop
+    body = colorloop? ? {'effect' => 'none'} : {'effect' => 'colorloop'}
+    update_lamp(body)
+  end
+
+  def colorloop?
+    state['effect'] == 'colorloop' ? true : false
+  end
 
   # Methods for sending bridge comman
   def update_lamp(msg)
