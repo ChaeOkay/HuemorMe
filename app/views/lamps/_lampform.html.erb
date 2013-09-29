@@ -1,9 +1,18 @@
 <%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp))  do |f| %>
   <%= f.hidden_field :command, value: "toggle_on_off" %>
-  <%= f.submit "Toggle #{lamp.say_on_off}?"%>
+  <%= f.submit "Toggle #{lamp.say_on_off}?", class: "tiny button radius" %>
 <% end %>
 
 <%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp))  do |f| %>
   <%= f.hidden_field :command, value: "toggle_colorloop" %>
-  <%= f.submit "Toggle Colorloop #{lamp.say_colorloop}?"%>
+  <%= f.submit "Toggle Colorloop #{lamp.say_colorloop}?", class: "tiny button radius" %>
+<% end %>
+
+<%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp))  do |f| %>
+  <%= f.label "adjust_brightness" %>
+  <div class="slider-input ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+    <a href="#" class="ui-slider-handle ui-state-default ui-corner-all"></a>
+  </div>
+  <%= f.hidden_field :command, value: "adjust_colorloop", brightness: "0" %>
+  <%= f.submit "Set Brightness to", class: "tiny button radius" %>
 <% end %>
