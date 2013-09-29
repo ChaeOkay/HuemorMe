@@ -18,7 +18,6 @@ describe Lamp do
       #stub the http request
       #error occuring in making a connection
 
-
       # lamp.turn_on_off
       # expect(lamp.on).to eq true
     end
