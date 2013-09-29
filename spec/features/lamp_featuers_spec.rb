@@ -5,6 +5,7 @@ feature 'Lamps' do
     let(:bridge) { create(:bridge) }
 
     it "should show button to turn on" do
+      ip_changed?
       current_user bridge.user
       bridge.lamps << Lamp.create(name: "Livingrm", hue_number: "2")
       Lamp.any_instance.stub(:on?){ false }
