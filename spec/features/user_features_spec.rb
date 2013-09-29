@@ -10,10 +10,25 @@ feature User do
       fill_in "user_email", with: "test@test.com"
       fill_in "user_password", with: "password"
       fill_in "user_password_confirmation", with: "password"
-      click_button "sign up"
-      expect(page).to have_content("Welcome")
+      expect{ click_button "sign up" }.to change{ User.count }.by 1
     end
   end
+
+  context "no bridge" do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it "should redirect to bridge registration page" do
+      visit root_path
+      fill_in "session_email", with: user.email
+      fill_in "session_password", with: "password"
+      click_button "login"
+      expect(page.body).to have_content("Push the button")
+    end
+
+    it "should ping the server to make sure that the ip has not changed"
+    # also fix sessions_feastures spec
+  end
+
 
   # context "turn on light" do
   #   let(:user) { build(:user) }
