@@ -19,4 +19,14 @@ describe LampsController do
     end
   end
 
+  context 'POST #update' do
+    let(:lamp) { create(:lamp) }
+    it "should send command" do
+      #pending - send command requires net/http request
+
+      # lamp.send_command("turn_on_off")
+      # expect( lamp.on? ).to eq true
+    end
+  end
+
 end
