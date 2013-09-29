@@ -1,4 +1,5 @@
 module RegisterBridge
+  require 'net/http'
 
   def get_local_ip 
     get_user_configs["internalipaddress"]
@@ -25,5 +26,10 @@ module RegisterBridge
     uri = URI.parse("http://#{bridge_ip}/api")
     http = Net::HTTP.new(uri.host)
     MultiJson.load(http.request_post(uri.path, MultiJson.dump(body)).body).first
+  end
+
+  def ip_changed?
+    bridge = current_user.bridges.first
+    !(bridge.ip == get_local_ip)
   end
 end
