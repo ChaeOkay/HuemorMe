@@ -1,0 +1,3 @@
+<%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp))  do |f| %>
+  <%= f.submit "Turn #{lamp.say_on_off}?"%>
+<% end %>
