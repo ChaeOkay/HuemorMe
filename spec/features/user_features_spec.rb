@@ -24,11 +24,7 @@ feature User do
       click_button "login"
       expect(page.body).to have_content("Push the button")
     end
-
-    it "should ping the server to make sure that the ip has not changed"
-    # also fix sessions_feastures spec
   end
-
 
   # context "turn on light" do
   #   let(:user) { build(:user) }
