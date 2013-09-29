@@ -5,21 +5,44 @@ class Lamp < ActiveRecord::Base
   validates :hue_number, presence: true
   belongs_to :bridge
 
-  def on?
-    state['on'] ? true : false
-  end
-
-  def turn_on_off
-    body = on? ? {'on' => false} : {'on' => true}
-    address.request_put(parsed_uri.path, MultiJson.dump(body))
+  def send_command(command)
+    self.send(command)
   end
 
   def say_on_off
     on? ? "off" : "on"
   end
 
+  def say_colorloop
+    colorloop? ? "off" : "on"
+  end
+
 
   private
+  # Methods for bridge command
+  def toggle_on_off
+    body = on? ? {'on' => false} : {'on' => true}
+    update_lamp(body)
+  end
+
+  def on?
+    state['on']
+  end
+
+
+  def toggle_colorloop
+    body = colorloop? ? {'effect' => 'none'} : {'effect' => 'colorloop'}
+    update_lamp(body)
+  end
+
+  def colorloop?
+    state['effect'] == 'colorloop' ? true : false
+  end
+
+  # Methods for sending bridge comman
+  def update_lamp(msg)
+    address.request_put(parsed_uri.path, MultiJson.dump(msg))
+  end
 
   def address
     Net::HTTP.new(parsed_uri.host)
