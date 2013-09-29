@@ -5,23 +5,35 @@ class Lamp < ActiveRecord::Base
   validates :hue_number, presence: true
   belongs_to :bridge
 
-  def turn_on_off
-    on? ? body = {'on' => false} : body = {'on' => true}
-    uri = URI.parse("#{base_uri}/state")
-    http = Net::HTTP.new(uri.host)
-    http.request_put(uri.path, MultiJson.dump(body))
+  def on?
+    state['on'] ? true : false
   end
 
-  def on?
-    state = MultiJson.load(Net::HTTP.get(URI.parse(base_uri)))['state']
-    state['on'] ? true : false
+  def turn_on_off
+    body = on? ? {'on' => false} : {'on' => true}
+    address.request_put(parsed_uri.path, MultiJson.dump(body))
   end
 
   def say_on_off
     on? ? "off" : "on"
   end
 
+
+  private
+
+  def address
+    Net::HTTP.new(parsed_uri.host)
+  end
+
+  def parsed_uri
+    URI.parse("#{base_uri}/state")
+  end
+
   def base_uri
     "http://#{self.bridge.ip}/api/1234567890/lights/#{self.hue_number}" #stub
+  end
+
+  def state
+    MultiJson.load(Net::HTTP.get(URI.parse(base_uri)))['state']
   end
 end
