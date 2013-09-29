@@ -7,14 +7,12 @@ class LampsController < ApplicationController
       new_lamp = Lamp.new(bridge: bridge, hue_number: lamp)
       unless new_lamp.save
         flash[:message] = "Error finding lamp"
+        redirect_to bridge_path(bridge)
+        return
       end
     end
 
-    if flash[:message]
-      redirect_to bridge_path(bridge)
-    else
-      redirect_to user_path(current_user)
-    end
+    redirect_to user_path(current_user)
   end
 
   def update
