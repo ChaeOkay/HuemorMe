@@ -11,7 +11,6 @@ class LampsController < ApplicationController
         return
       end
     end
-
     redirect_to user_path(current_user)
   end
 
