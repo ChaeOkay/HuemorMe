@@ -1,10 +1,11 @@
-$(document).ready(function(){
+var adjustBrightness = function(){
   $('.slider-input').slider({
-    min: 0,
-    max: 100,
-    step: 1,
     slide: function(event, ui){
-      //change value of f.hidden_field brightnes value
+      $(this).next().attr('brightness', ui.value)
     }
   })
+}
+
+$(document).ready(function(){
+  adjustBrightness()
 })
