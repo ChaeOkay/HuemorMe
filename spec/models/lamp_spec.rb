@@ -4,6 +4,7 @@ describe Lamp do
 
   it { should belong_to :bridge }
   it { should validate_presence_of :hue_number }
+  it { should validate_uniqueness_of(:hue_number).scoped_to(:bridge_id).with_message("Cannot register the same light.")}
 
   context "new" do
     let(:lamp) { build(:lamp) }
