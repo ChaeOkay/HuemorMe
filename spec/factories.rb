@@ -16,6 +16,12 @@ FactoryGirl.define do
     end
   end
 
+  trait :with_groups do
+    after :create do |user|
+      FactoryGirl.create_list :group, 1, :user => user
+    end
+  end
+
   factory :lamp do
     bridge
     name "kitchen"
@@ -33,6 +39,11 @@ FactoryGirl.define do
     after :create do |bridge|
       FactoryGirl.create_list :lamp, 3, :bridge => bridge
     end
+  end
+
+  factory :group do
+    user
+    name "All"
   end
 
 end
