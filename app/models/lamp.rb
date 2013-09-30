@@ -21,14 +21,14 @@ class Lamp < ActiveRecord::Base
   end
 
   def say_brightness
-    "#{state_brightness}%"
+    "#{state_brightness}"
   end
 
 
   private
   # BRIGHTNESS
   def set_brightness(args)
-    body = { 'bri' => args[:brightness] }
+    body = { 'bri' => args[:brightness].to_i }
     update_lamp(body)
   end
 
