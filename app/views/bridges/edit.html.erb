@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+"Push the button"
+
+<%= form_for [current_user, @bridge] do |f| %>
+  <%= f.submit "Update Your Bridge IP" %>
+<% end %>

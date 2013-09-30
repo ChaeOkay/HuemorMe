@@ -15,8 +15,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @lamps = current_user.lamps
-    @bridge = current_user.bridges.first
+    if current_user.bridges.empty?
+      redirect_to new_user_bridge_path(current_user)
+    elsif ip_changed?
+      redirect_to edit_user_bridge_path(current_user, current_user.bridges.first)
+    else
+      @lamps = current_user.lamps
+      @bridge = current_user.bridges.first
+    end
   end
 
   private
