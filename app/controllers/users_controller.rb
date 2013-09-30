@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login @user
+      @user.groups.create(name: "All")
       redirect_to user_path(@user), notice: "Welcome #{@user.first_name}"
     else
       redirect_to new_user_path
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
     else
       @lamps = current_user.lamps
       @bridge = current_user.bridges.first
+      @groups = current_user.groups
     end
   end
 
