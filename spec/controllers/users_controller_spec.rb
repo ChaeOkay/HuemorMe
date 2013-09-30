@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersController do 
+describe UsersController do
 	context "GET #show" do
     let!(:user) { FactoryGirl.create(:user, :with_bridges) }
 
@@ -15,7 +15,7 @@ describe UsersController do
 
   context "GET #show with valid bridge" do
     let!(:user) { FactoryGirl.create(:user, :with_bridges) }
-    
+
     before do
       controller.stub(:current_user).and_return(user)
       controller.stub(:lamps).and_return(Lamp.new)
