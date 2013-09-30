@@ -1,4 +1,4 @@
-<%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp), html: {class: "on_off"})  do |f| %>
+<%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp), html: {class: "on_off"}, remote: true)  do |f| %>
   <%= f.hidden_field :command, value: "toggle_on_off" %>
   <%= f.submit "Toggle #{lamp.say_on_off}?", class: "tiny button radius" %>
 <% end %>
@@ -11,6 +11,6 @@
 <%= form_for([lamp.bridge, lamp], url: bridge_lamp_path(lamp.bridge, lamp), html: {class: "brightness"})  do |f| %>
   <div class="slider-input ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
   </div>
-  <%= f.hidden_field(:command, value: "adjust_brightness", data: {brightness: '0', bridge_id: "#{lamp.bridge.id}", lamp_id: "#{lamp.id}"}, class: "brightvalue") %>
+  <%= f.hidden_field(:command, value: "adjust_brightness", data: {brightness: lamp.say_brightness, bridge_id: "#{lamp.bridge.id}", lamp_id: "#{lamp.id}"}, class: "brightvalue") %>
   <%= f.submit "Set Brightness to", class: "tiny button radius" %>
 <% end %>
