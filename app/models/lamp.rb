@@ -20,6 +20,10 @@ class Lamp < ActiveRecord::Base
 
   private
   # Methods for bridge command
+
+  def adjust_brightness
+  end
+
   def toggle_on_off
     body = on? ? {'on' => false} : {'on' => true}
     update_lamp(body)
