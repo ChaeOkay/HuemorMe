@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :bridges
+  has_many :lamps, through: :bridges
 end

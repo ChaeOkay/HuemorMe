@@ -9,8 +9,9 @@ feature 'Lamps' do
       current_user bridge.user
       bridge.lamps << Lamp.create(name: "Livingrm", hue_number: "2")
       Lamp.any_instance.stub(:on?){ false }
+      Lamp.any_instance.stub(:colorloop?){ false }
       visit user_path(bridge.user)
-      expect(page.body).to include("Switch on")
+      expect(page.body).to include("Toggle on?")
     end
 
   end

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     elsif ip_changed?
       redirect_to edit_user_bridge_path(current_user, current_user.bridges.first)
     else
-      @lamps = Lamp.all
+      @lamps = current_user.lamps
       @bridge = current_user.bridges.first
     end
   end

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature User do
+
   context "signing up" do
     it "should display a success message" do
       visit root_path
@@ -26,15 +27,23 @@ feature User do
     end
   end
 
-  # context "turn on light" do
-  #   let(:user) { build(:user) }
+  context "user dashboard features" do
+    let(:bridge) { FactoryGirl.create :bridge }
+    let(:lamp) { FactoryGirl.create :lamp, bridge: bridge }
+    it "clicking button should flash notice that lamp is on" do
+      current_user(bridge.user)
+      bridge.lamps << lamp
 
-  #   it "should change off button to on" do
-  #     user.stub(:lamps) { [ {"lamp1" => {"status" => { "on" => false }}} ] }
+      Lamp.any_instance.stub(:on?) { false }
 
-  #     visit users_path
-  #     click_button "on"
-  #     expect( page.find(:css, '#lamp1').text ).to eq "off"
-  #   end
-  # end
+      # The stub value is inconsequential, just cancelling the HTTP request
+      Lamp.any_instance.stub(:turn_on_off) { false }      
+
+      visit user_path(bridge.user)
+      click_button "Switch on"
+      expect(body).to include("Lamp is switched on")
+    end
+  end
 end
+
+ 
