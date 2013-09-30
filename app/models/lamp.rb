@@ -4,6 +4,7 @@ class Lamp < ActiveRecord::Base
   validates_inclusion_of :on, :in => [true, false]
   validates :hue_number, presence: true
   belongs_to :bridge
+  belongs_to :group
 
 
 
