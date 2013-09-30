@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       login @user
       redirect_to user_path(@user), notice: "Welcome #{@user.first_name}"
     else
-      redirect_to new_user_path
+      render new_user_path
     end
   end
 
