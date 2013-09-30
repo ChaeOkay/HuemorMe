@@ -23,10 +23,10 @@
     <%= f.text_field :username %>
     <%= @user.errors[:username].join(',') %>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
     <%= @user.errors[:password].join(',') %>
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
     <%= @user.errors[:password_confirmation].join(',') %>
     <%= f.submit "sign up" %>
   <% end %>
