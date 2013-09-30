@@ -1,10 +1,10 @@
 <%= flash[:notice] %>
 
 <h1>Lamps</h1>
-<ul>
+<ul data-orbit data-options="timer_speed:0; animation_speed:0; timer:false; caption_clas:'none'; active_slide_clas:'none'">
   <% @lamps.each do |lamp| %>
   <li>
-    <div>
+    <div class="lamplist">
       <div>Lamp <%= lamp.id %></div>
       <div>
         <%= render "/lamps/lampform", :lamp => lamp %>
