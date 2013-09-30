@@ -5,25 +5,48 @@ class Lamp < ActiveRecord::Base
   validates :hue_number, presence: true
   belongs_to :bridge
 
-  def send_command(command)
-    self.send(command)
+
+
+  def send_command(command, args = nil)
+    args ? self.send(command, args) : self.send(command)
+  end
+
+  #Views
+  def say_colorloop
+    colorloop? ? "off" : "on"
   end
 
   def say_on_off
     on? ? "off" : "on"
   end
 
-  def say_colorloop
-    colorloop? ? "off" : "on"
+  def say_brightness
+    "#{state_brightness}%"
   end
 
 
   private
-  # Methods for bridge command
-
-  def adjust_brightness
+  # BRIGHTNESS
+  def set_brightness(args)
+    body = { 'bri' => args[:brightness] }
+    update_lamp(body)
   end
 
+  def state_brightness
+    state['bri']
+  end
+
+  # COLORLOOP
+  def toggle_colorloop
+    body = colorloop? ? {'effect' => 'none'} : {'effect' => 'colorloop'}
+    update_lamp(body)
+  end
+
+  def colorloop?
+    state['effect'] == 'colorloop' ? true : false
+  end
+
+  # ON/OFF
   def toggle_on_off
     body = on? ? {'on' => false} : {'on' => true}
     update_lamp(body)
@@ -34,16 +57,8 @@ class Lamp < ActiveRecord::Base
   end
 
 
-  def toggle_colorloop
-    body = colorloop? ? {'effect' => 'none'} : {'effect' => 'colorloop'}
-    update_lamp(body)
-  end
-
-  def colorloop?
-    state['effect'] == 'colorloop' ? true : false
-  end
-
-  # Methods for sending bridge comman
+  #####################################
+  # Methods for sending bridge commands
   def update_lamp(msg)
     address.request_put(parsed_uri.path, MultiJson.dump(msg))
   end
