@@ -29,4 +29,35 @@ describe BridgesController do
       expect { post :create, user_id: user }.to change{ Bridge.all.count }.by(1)
     end
   end
+
+  context "GET #edit" do
+    let(:user) { create(:user, :with_bridges) }
+    it "assigns @bridge" do
+      controller.stub(:current_user).and_return(user)
+      get :edit, user_id: user.id, id: user.bridges.first.id
+      expect(assigns(:bridge)).to_not be_nil
+    end
+  end
+
+  context "PATCH #update" do
+    let(:user) { create(:user, :with_bridges) }
+
+    before do
+      controller.stub(:get_local_ip).and_return("123.123.0.123")
+      controller.stub(:current_user).and_return(user)
+    end
+
+    it "invalid/errors redirects to edit_user_bridge" do
+      controller.stub(:register_user).and_return({'error' => "stubbed error message"})
+
+      patch :update, user_id: user.id, id: user.bridges.first.id
+      expect { response }.to redirect_to edit_user_bridge_path(user, user.bridges.first)
+    end
+
+    it "should redirect to current user path" do
+      controller.stub(:register_user).and_return({})
+      patch :update, user_id: user.id, id: user.bridges.first.id
+      expect { response }.to redirect_to user_path(user)
+    end
+  end
 end
