@@ -1,14 +1,25 @@
 require 'spec_helper'
 
-describe UsersController do
+describe UsersController do 
+	context "GET #show" do
+    let!(:user) { FactoryGirl.create(:user, :with_bridges) }
 
-  describe "GET show" do
-    let(:user) { build(:user) }
+    it "should redirect to bridge edit page" do
+      controller.stub(:get_local_ip).and_return("123.123.0.123")
+      controller.stub(:current_user).and_return(user)
 
+      get :show, id: user.id
+      expect{ response }.to redirect_to edit_user_bridge_path(user, user.bridges.first)
+    end
+  end
+
+  context "GET #show with valid bridge" do
+    let!(:user) { FactoryGirl.create(:user, :with_bridges) }
+    
     before do
       controller.stub(:current_user).and_return(user)
-      controller.stub(:bridge).and_return( Bridge.new(user: user))
       controller.stub(:lamps).and_return(Lamp.new)
+      controller.stub(:ip_changed?).and_return(false)
     end
 
     it "successfully finds show route" do
@@ -21,5 +32,4 @@ describe UsersController do
       expect(response).to render_template("show")
     end
   end
-
 end

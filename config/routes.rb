@@ -1,7 +1,7 @@
 Huemorme::Application.routes.draw do
 
   resources :users, only: [:new, :create, :show] do
-    resources :bridges, only: [:new, :create]
+    resources :bridges, only: [:new, :create, :edit, :update]
   end
 
   resources :bridges, only: [:show] do
