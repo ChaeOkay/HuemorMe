@@ -24,13 +24,16 @@ feature User do
       bridge.lamps << lamp
 
       Lamp.any_instance.stub(:on?) { false }
+      Lamp.any_instance.stub(:colorloop?) { false }
 
       # The stub value is inconsequential, just cancelling the HTTP request
-      Lamp.any_instance.stub(:turn_on_off) { false }      
+      Lamp.any_instance.stub(:toggle_on_off) { false } 
+      Lamp.any_instance.stub(:toggle_colorloop) { false }     
 
       visit user_path(bridge.user)
-      click_button "Switch on"
-      expect(body).to include("Lamp is switched on")
+      # binding.pry
+      click_button "Toggle on"
+      expect(body).to include("Toggle on")
     end
   end
 end
