@@ -18,14 +18,15 @@ module RegisterBridge
 
 
   def register_user(bridge_ip)
-    body = {
-      devicetype: "HuemorMe",
-      username: current_user.username
-    }
+    body = {}
 
     uri = URI.parse("http://#{bridge_ip}/api")
     http = Net::HTTP.new(uri.host)
-    MultiJson.load(http.request_post(uri.path, MultiJson.dump(body)).body).first
+    begin
+      MultiJson.load(http.request_post(uri.path, MultiJson.dump(body)).body).first
+    rescue
+      "Connection not made"
+    end
   end
 
   def ip_changed?
