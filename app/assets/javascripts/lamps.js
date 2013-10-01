@@ -13,20 +13,20 @@ var Lamp = {
 	  	value: 0,
 	    slide: function(event, ui){
 	      $(this).next().attr('data-brightness', ui.value)
-	       $this = $(this).next()
-	      $.ajax({
-	      	type: "PATCH",
-	      	url: '/bridges/' + $this.data('bridge-id') + '/lamps/' + $this.data('lamp-id'),
-	      	data: 'lamp[command]=set_brightness&lamp[data][brightness]=' + ui.value
-	      })
+	      //  $this = $(this).next()
+	      // $.ajax({
+	      // 	type: "GET",
+	      // 	url: '/bridges/' + $this.data('bridge-id') + '/lamps/' + $this.data('lamp-id') + '/settings',
+	      // 	data: 'lamp[command]=set_brightness&lamp[data][brightness]=' + ui.value
+	      // })
 	    },
 	    stop: function(event, ui){
 	    	$this = $(this).next()
-	      // $.ajax({
-	      // 	type: "PATCH",
-	      // 	url: '/bridges/' + $this.data('bridge-id') + '/lamps/' + $this.data('lamp-id'),
-	      // 	data: 'lamp[command]=set_brightness&lamp[data]=' + ui.value
-	      // })
+	      $.ajax({
+	      	type: "GET",
+	      	url: '/bridges/' + $this.data('bridge-id') + '/lamps/' + $this.data('lamp-id') + '/settings',
+	      	data: 'lamp[command]=set_brightness&lamp[data][brightness]=' + ui.value
+	      })
 	    }
 	  })
 	},
@@ -46,6 +46,18 @@ var Lamp = {
 		}
 		else {
 			$button.val("Toggle on?")
+		}
+	})
+	},
+
+	toggle_colorloop_on_off: function(){
+		$(".colorloop").on('ajax:success', function(){
+		$button = $(this).children().next().next()
+		if ($button.val() === "Toggle Colorloop on?"){
+			$button.val("Toggle Colorloop off?")
+		}
+		else {
+			$button.val("Toggle Colorloop on?")
 		}
 	})
 	}
