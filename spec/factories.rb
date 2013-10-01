@@ -4,9 +4,9 @@ FactoryGirl.define do
     id 1
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
-    email "test@test.com"
-    password "password"
-    password_confirmation "password"
+    email "TeSt@teSt.cOm"
+    password "password123"
+    password_confirmation "password123"
     username "username_test"
   end
 
