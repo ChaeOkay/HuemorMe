@@ -17,4 +17,10 @@ class LampsController < ApplicationController
     @lamp.send_command(params[:lamp][:command], params[:lamp][:data])
     redirect_to user_path(current_user)
   end
+
+  def destroy
+    bridge = Bridge.find(params[:bridge_id])
+    bridge.lamps.destroy_all
+    redirect_to bridge_path(bridge)
+  end
 end

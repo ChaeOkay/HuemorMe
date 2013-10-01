@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   def show
     if current_user.bridges.empty?
       redirect_to new_user_bridge_path(current_user)
-    elsif ip_changed?
+    elsif ip_changed? 
+      flash[:notice] = "Your ip has changed, please reconfigure your bridge"
+      redirect_to edit_user_bridge_path(current_user, current_user.bridges.first)
+    elsif username_not_valid?
+      flash[:notice] = "Your username is no longer valid, there appears to have been a hard reset."
       redirect_to edit_user_bridge_path(current_user, current_user.bridges.first)
     else
       @lamps = current_user.lamps

@@ -2,8 +2,13 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-"Push the button"
-
-<%= form_for [current_user, @bridge] do |f| %>
-  <%= f.submit "Update Your Bridge IP" %>
+<% if flash[:notice] == "Your username is no longer valid, there appears to have been a hard reset." %>
+	<p>Your schedules and lamp settings have been lost due to the hard reset</p>
+  <%= link_to("Reset your lamps", bridge_lamp_path(@bridge, @bridge.lamps.first), :method => :delete) %> 
+<% else %>  
+      
+  <p>Push the link button</p>
+  <%= form_for [current_user, @bridge] do |f| %>
+    <%= f.submit "Update Your Bridge IP" %>
+  <% end %>
 <% end %>

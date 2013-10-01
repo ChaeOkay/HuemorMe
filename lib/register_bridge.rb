@@ -32,4 +32,14 @@ module RegisterBridge
     bridge = current_user.bridges.first
     !(bridge.ip == get_local_ip)
   end
+
+  def username_not_valid?
+    response = MultiJson.load(Net::HTTP.get(URI.parse("http://#{current_user.bridges.first.ip}/api/#{current_user.username}")))
+    
+    if response.first['error']
+      response.first["error"]["type"] == 1
+    else
+      false
+    end
+  end
 end
