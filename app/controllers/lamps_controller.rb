@@ -3,7 +3,8 @@ class LampsController < ApplicationController
   def create
     bridge = Bridge.find(params[:bridge_id])
     get_lights(bridge).each do |lamp|
-      lamp = Lamp.new(bridge: bridge, hue_number: lamp)
+      Lamp.new(bridge: bridge, hue_number: lamp,
+        group_id: current_user.groups.find_by_name("All").id)
       unless lamp.save
         flash[:notice] = lamp.errors.messages[:hue_number]
       end
