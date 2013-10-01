@@ -27,12 +27,13 @@ feature User do
     end
   end
 
-context "user dashboard features" do
+  context "user dashboard features" do
     let(:bridge) { FactoryGirl.create :bridge }
     let(:lamp) { FactoryGirl.create :lamp, bridge: bridge }
     it "clicking button should flash notice that lamp is on" do
       current_user(bridge.user)
       ip_changed?
+      username_not_valid?
       bridge.lamps << lamp
 
       Lamp.any_instance.stub(:on?) { false }

@@ -7,6 +7,7 @@ feature 'Sessions' do
     it "should redirect to user show", :js => true do
       current_user(user)
       ip_changed?
+      username_not_valid?
       visit root_path
       fill_in "session_email", with: user.email
       fill_in "session_password", with: user.password
@@ -22,6 +23,7 @@ feature 'Sessions' do
     it 'should redirect to index page' do
       current_user(user)
       logged_in?
+      username_not_valid?
       visit user_path(user)
       click_button('logout')
       page.current_path.should eq root_path

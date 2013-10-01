@@ -10,4 +10,8 @@ module AuthenticationHelper
   def ip_changed?
   	ApplicationController.any_instance.stub(:ip_changed?){ false }
   end
+
+  def username_not_valid?
+    ApplicationController.any_instance.stub(:username_not_valid?){ false }
+  end
 end
