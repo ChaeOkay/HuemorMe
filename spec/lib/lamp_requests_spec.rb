@@ -38,9 +38,9 @@ describe "LampRequests" do
     end
 
     context "#say_brightness" do
-      it "returns 77%" do
+      it "returns 77" do
         stub_state
-        expect(lamp.say_brightness).to eq '77%'
+        expect(lamp.say_brightness).to eq '77'
       end
     end
   end
