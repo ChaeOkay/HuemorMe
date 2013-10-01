@@ -5,6 +5,7 @@ class Lamp < ActiveRecord::Base
 
   validates_inclusion_of :on, :in => [true, false]
   validates :hue_number, presence: true
+  validates_uniqueness_of :hue_number, scope: :bridge_id, message: "Cannot register the same light."
   belongs_to :bridge
   belongs_to :group
 
