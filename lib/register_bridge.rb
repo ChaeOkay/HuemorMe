@@ -13,7 +13,11 @@ module RegisterBridge
     #returns a hash including id, internalipaddress, and macaddress
     meethue = 'http://www.meethue.com/api/nupnp'
     meethue_json = MultiJson.load(Net::HTTP.get(URI.parse(meethue)))
-    meethue_json.first
+    begin
+      meethue_json.first
+    rescue
+      false
+    end
   end
 
 
