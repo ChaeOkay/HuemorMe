@@ -14,6 +14,7 @@ describe BridgesController do
 
     before do
       controller.stub(:get_local_ip).and_return("000.000.0.000")
+      controller.stub(:get_device_id).and_return("1234567890")
       controller.stub(:current_user).and_return(user)
     end
 
