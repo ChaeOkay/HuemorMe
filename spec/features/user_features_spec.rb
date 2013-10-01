@@ -9,8 +9,8 @@ feature User do
       fill_in "user_last_name", with: "wong"
       fill_in "user_username", with: "jws_lights"
       fill_in "user_email", with: "test@test.com"
-      fill_in "user_password", with: "password"
-      fill_in "user_password_confirmation", with: "password"
+      fill_in "user_password", with: "password123"
+      fill_in "user_password_confirmation", with: "password123"
       expect{ click_button "sign up" }.to change{ User.count }.by 1
     end
   end
@@ -21,7 +21,7 @@ feature User do
     it "should redirect to bridge registration page" do
       visit root_path
       fill_in "session_email", with: user.email
-      fill_in "session_password", with: "password"
+      fill_in "session_password", with: "password123"
       click_button "login"
       expect(page.body).to have_content("Push the button")
     end
@@ -39,16 +39,14 @@ feature User do
       Lamp.any_instance.stub(:on?) { false }
       Lamp.any_instance.stub(:colorloop?) { false }
       Lamp.any_instance.stub(:say_brightness) { 0 }
-      # The stub value is inconsequential, just cancelling the HTTP request
-      Lamp.any_instance.stub(:toggle_on_off) { false } 
-      Lamp.any_instance.stub(:toggle_colorloop) { false }     
+      Lamp.any_instance.stub(:toggle_on_off) { false }
+      Lamp.any_instance.stub(:toggle_colorloop) { false }
 
       visit user_path(bridge.user)
-      # binding.pry
       click_button "Toggle on"
       expect(body).to include("Toggle on")
     end
   end
 end
 
- 
+
