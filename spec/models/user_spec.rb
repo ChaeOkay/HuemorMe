@@ -12,7 +12,7 @@ describe User do
   context "with non-unique email" do
     it "should be invalid" do
       expect{
-        User.create(email: "TeSt@teSt.cOm",
+        user = User.create(email: "TeSt@teSt.cOm",
                   first_name: "hi",
                   last_name: "bye",
                   password: "testing1",
@@ -29,8 +29,24 @@ describe User do
   end
 
   context "invalid password" do
-    it "should raise error" do
-      expect()
+    it "should show msg if password is only numbers" do
+       user = User.create(email: "somethingnew@something.com",
+                  first_name: "hi",
+                  last_name: "bye",
+                  password: "123",
+                  password_confirmation: "123",
+                  username: "username_test")
+       expect(user.errors.full_messages).to include("Password must include a letter")
+    end
+
+    it "should show msg if non alpha/numeric symbols are present" do
+       user = User.create(email: "somethingnew@something.com",
+            first_name: "hi",
+            last_name: "bye",
+            password: "some123*",
+            password_confirmation: "some123*",
+            username: "username_test")
+       expect(user.errors.full_messages).to include("Password must use alpha-numeric characters")
     end
   end
 end
