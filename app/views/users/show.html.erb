@@ -13,18 +13,3 @@
   </li>
   <% end %>
 </ul>
-
-<h1>Groups</h1>
-<ul>
-  <% @groups.each do |group| %>
-  <li>
-    <div><%= group.name %></div>
-      <ul>
-        <% group.lamps.reverse.each do |lamp| %>
-          <li><%= lamp.id %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    </div>
-  </li>
-</ul>
