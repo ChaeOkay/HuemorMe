@@ -12,8 +12,14 @@ class User < ActiveRecord::Base
     format: {
       with: /[\w\.\+]+@[\w\.]+\.\w+/,
         message: "must be valid email address" }
+  before_save :lowercase_email
 
   has_many :bridges
   has_many :lamps, through: :bridges
   has_many :groups
+
+
+  def lowercase_email
+    email.downcase!
+  end
 end
