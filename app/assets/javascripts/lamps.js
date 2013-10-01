@@ -3,6 +3,7 @@ var Lamp = {
 		this.adjustBrightness();
 		this.setBrightnessValue();
 		this.toggle_on_off();
+		this.toggle_colorloop_on_off();
 	},
 
 	adjustBrightness: function(){
