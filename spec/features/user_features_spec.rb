@@ -37,7 +37,7 @@ context "user dashboard features" do
 
       Lamp.any_instance.stub(:on?) { false }
       Lamp.any_instance.stub(:colorloop?) { false }
-
+      Lamp.any_instance.stub(:say_brightness) { 0 }
       # The stub value is inconsequential, just cancelling the HTTP request
       Lamp.any_instance.stub(:toggle_on_off) { false } 
       Lamp.any_instance.stub(:toggle_colorloop) { false }     
