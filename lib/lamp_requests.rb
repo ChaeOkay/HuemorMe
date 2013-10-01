@@ -10,12 +10,12 @@ module LampRequests
   end
 
   def say_brightness
-    "#{state_brightness}%"
+    "#{state_brightness}"
   end
 
 # BRIGHTNESS
   def set_brightness(args)
-    body = { 'bri' => args[:brightness] }
+    body = { 'bri' => args[:brightness].to_i }
     update_lamp(body)
   end
 
