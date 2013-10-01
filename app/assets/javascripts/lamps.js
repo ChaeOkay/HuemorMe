@@ -14,12 +14,6 @@ var Lamp = {
 	  	value: 0,
 	    slide: function(event, ui){
 	      $(this).next().attr('data-brightness', ui.value)
-	      //  $this = $(this).next()
-	      // $.ajax({
-	      // 	type: "GET",
-	      // 	url: '/bridges/' + $this.data('bridge-id') + '/lamps/' + $this.data('lamp-id') + '/settings',
-	      // 	data: 'lamp[command]=set_brightness&lamp[data][brightness]=' + ui.value
-	      // })
 	    },
 	    stop: function(event, ui){
 	    	$this = $(this).next()
