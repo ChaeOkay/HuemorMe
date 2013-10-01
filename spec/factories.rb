@@ -37,7 +37,7 @@ FactoryGirl.define do
 
   trait :with_lamps do
     after :create do |bridge|
-      FactoryGirl.create_list :lamp, 3, :bridge => bridge
+      FactoryGirl.create_list :lamp, 1, :bridge => bridge
     end
   end
 
