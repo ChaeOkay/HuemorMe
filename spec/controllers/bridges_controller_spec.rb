@@ -22,7 +22,7 @@ describe BridgesController do
       controller.stub(:register_user).and_return({'error' => "stubbed error message"})
       post :create, user_id: user
       expect { response }.to redirect_to new_user_bridge_path(user)
-      end
+    end
 
     it "valid info saves new bridge" do
       controller.stub(:register_user).and_return({})
