@@ -8,15 +8,29 @@ describe User do
   it { should validate_presence_of :password }
   it { should validate_presence_of :username }
 
+  let!(:user) { create(:user) }
   context "with non-unique email" do
-    let(:user) { build(:user) }
-      it "should be invalid" do
-      user2 = User.create(email: "test@test.com",
+    it "should be invalid" do
+      expect{
+        User.create(email: "TeSt@teSt.cOm",
                   first_name: "hi",
                   last_name: "bye",
-                  password: "test",
+                  password: "testing1",
+                  password_confirmation: "testing1",
                   username: "username_test")
-      expect(user2).to be_invalid
+        }.to raise_error
+    end
+  end
+
+  context "uppercase email" do
+    it "should save as downcased" do
+      expect(user.email).to eq "test@test.com"
+    end
+  end
+
+  context "invalid password" do
+    it "should raise error" do
+      expect()
     end
   end
 end
