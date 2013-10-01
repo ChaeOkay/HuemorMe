@@ -11,23 +11,23 @@
 
   <%= form_for @user, :url => users_path do |f| %>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
     <%= @user.errors[:first_name].join(',') %>
+    <%= f.text_field :first_name %>
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
     <%= @user.errors[:last_name].join(',') %>
+    <%= f.text_field :last_name %>
     <%= f.label :email %>
-    <%= f.text_field :email %>
     <%= @user.errors[:email].join(',') %>
+    <%= f.text_field :email %>
     <%= f.label :username %>
-    <%= f.text_field :username %>
     <%= @user.errors[:username].join(',') %>
+    <%= f.text_field :username %>
     <%= f.label :password %>
-    <%= f.password_field :password %>
     <%= @user.errors[:password].join(',') %>
+    <%= f.password_field :password %>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
     <%= @user.errors[:password_confirmation].join(',') %>
+    <%= f.password_field :password_confirmation %>
     <%= f.submit "sign up" %>
   <% end %>
 
