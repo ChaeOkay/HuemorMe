@@ -5,7 +5,7 @@ Huemorme::Application.routes.draw do
   end
 
   resources :bridges, only: [:show] do
-    resources :lamps, only: [:create] do
+    resources :lamps, only: [:create, :destroy] do
       member do
         get 'settings'
       end
