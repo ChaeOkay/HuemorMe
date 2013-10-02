@@ -2,10 +2,13 @@ class LampsController < ApplicationController
 
   def create
     lamp_array = params[:lamp_ids].split(",")
+    flash[:notice] = []
     lamp_array.each do |id|
       lamp = Lamp.new(bridge_id: params[:bridge_id], light_identifier: id)
       unless lamp.save
-        flash[:notice] = "An error occured while saving your lamps"
+        unless lamp.errors.full_messages == ["Light identifier Cannot register the same light."]
+          flash[:notice] << lamp.errors.full_messages
+        end
       end
     end
     redirect_to user_path(current_user)
