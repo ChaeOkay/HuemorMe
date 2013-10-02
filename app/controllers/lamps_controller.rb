@@ -1,12 +1,14 @@
 class LampsController < ApplicationController
 
   def create
-    bridge = Bridge.find(params[:bridge_id])
-    get_lights(bridge).each do |lamp|
-      lamp = Lamp.new(bridge: bridge, light_identifier: lamp,
-        group_id: current_user.groups.find_by_name("All").id)
+    lamp_array = params[:lamp_ids].split(",")
+    flash[:lamp] = []
+    lamp_array.each do |id|
+      lamp = Lamp.new(bridge_id: params[:bridge_id], light_identifier: id)
       unless lamp.save
-        flash[:notice] = lamp.errors.messages[:hue_number]
+        unless lamp.errors.full_messages == ["Light identifier Cannot register the same light."]
+          flash[:lamp] << lamp.errors.full_messages
+        end
       end
     end
     redirect_to user_path(current_user)

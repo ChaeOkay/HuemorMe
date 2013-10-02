@@ -14,4 +14,5 @@ module Authentication
   def log_out
   	session.destroy
   end
+
 end

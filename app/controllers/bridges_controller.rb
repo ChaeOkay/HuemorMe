@@ -22,18 +22,18 @@ class BridgesController < ApplicationController
     @bridge = current_user.bridges.first
   end
 
-  def update
-    ip = get_local_ip
-    bridge = Bridge.find(params[:id])
-    bridge.update_attributes(ip: ip)
-    bridge_response = register_user(ip)
-    if bridge_response['error']
-      redirect_to edit_user_bridge_path(current_user, bridge), notice: bridge_response['error']
-    else
-      bridge.save
-      redirect_to user_path(current_user)
-    end
-  end
+  # def update
+  #   ip = get_local_ip
+  #   bridge = Bridge.find(params[:id])
+  #   bridge.update_attributes(ip: ip)
+  #   bridge_response = register_user(ip)
+  #   if bridge_response['error']
+  #     redirect_to edit_user_bridge_path(current_user, bridge), notice: bridge_response['error']
+  #   else
+  #     bridge.save
+  #     redirect_to user_path(current_user)
+  #   end
+  # end
 
   private
 
