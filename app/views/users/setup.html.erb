@@ -5,6 +5,6 @@
 <h3>Lamps detected!</h3>
 
 <p>Click link to download the HuemorMe application</p>
-<p><%= link_to "Download", download_path %></p>
+<p><%= link_to "Download", {:controller => "users", :action => "download"} %></p>
 </br>
 <p><%= link_to "Continue", user_path(current_user) %></p>
