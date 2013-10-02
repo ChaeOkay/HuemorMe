@@ -17,9 +17,12 @@ FactoryGirl.define do
   end
 
   factory :lamp do
+    light_identifier "1"
     bridge
     on false
-    light_identifier "1"
+    color "blue"
+    effect "colorloop"
+    brightness "30"
   end
 
   factory :bridge do
