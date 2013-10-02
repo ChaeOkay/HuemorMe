@@ -2,28 +2,39 @@ module LampRequests
 
 #GETTERS
   def say_on_off
-    on ? "off" : "on"
+    self.on ? "off" : "on"
   end
 
   def say_brightness
-    brightness
+    self.brightness
   end
 
   def say_colorloop
-    effect == "colorloop" ? "off" : "on"
+    self.effect == "colorloop" ? "off" : "on"
   end
 
 #SETTERS
-  def toggle_on_off
-    lamp.on = lamp.on ? false : true
+  def turn_on
+    self.on = true
+    self.save
+  end
+
+  def turn_off
+    self.on = false
+    self.save
   end
 
   def adjust_brightness(args)
-    lamp.brightness = args[:brightness]
+    self.brightness = args[:brightness]
   end
 
-  def toggle_colorloop(args)
-    lamp.effect = args[:effect]
+  def turn_colorloop_on
+    self.effect = "colorloop"
+    self.save
   end
 
+  def turn_colorloop_off
+    self.effect = "none"
+    self.save
+  end
 end

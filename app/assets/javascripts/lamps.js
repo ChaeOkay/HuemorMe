@@ -35,24 +35,24 @@ var Lamp = {
 
 	toggle_on_off: function(){
 		$(".on_off").on('ajax:success', function(){
-		$button = $(this).children().next().next()
-		if ($button.val() === "Toggle on?"){
-			$button.val("Toggle off?")
-		}
-		else {
-			$button.val("Toggle on?")
-		}
-	})
+			$button = $(this).children().next().next()
+			if ($button.val() === "Turn on?"){
+				$button.val("Turn off?")
+			}
+			else {
+				$button.val("Turn on?")
+			}
+		})
 	},
 
 	toggle_colorloop_on_off: function(){
 		$(".colorloop").on('ajax:success', function(){
 		$button = $(this).children().next().next()
-		if ($button.val() === "Toggle Colorloop on?"){
-			$button.val("Toggle Colorloop off?")
+		if ($button.val() === "Turn colorloop on?"){
+			$button.val("Turn colorloop off?")
 		}
 		else {
-			$button.val("Toggle Colorloop on?")
+			$button.val("Turn colorloop on?")
 		}
 	})
 	}
