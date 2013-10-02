@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Lamp do
 
   it { should belong_to :bridge }
-  it { should belong_to :group }
-  it { should validate_presence_of :hue_number }
-  it { should validate_uniqueness_of(:hue_number).scoped_to(:bridge_id).with_message("Cannot register the same light.")}
+  it { should have_one :user }
+  it { should validate_presence_of :light_identifier }
+  it { should validate_uniqueness_of(:light_identifier).scoped_to(:bridge_id).with_message("Cannot register the same light.")}
 
   let(:lamp) { build(:lamp) }
   context "new" do
