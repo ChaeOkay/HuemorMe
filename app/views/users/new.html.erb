@@ -9,23 +9,35 @@
 
   <%= flash[:success] %>
 
-  <%= form_for @user, :url => users_path do |f| %>
-    <%= f.label :first_name %>
-    <%= @user.errors[:first_name].join(',') %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %>
-    <%= @user.errors[:last_name].join(',') %>
-    <%= f.text_field :last_name %>
-    <%= f.label :email %>
-    <%= @user.errors[:email].join(',') %>
-    <%= f.text_field :email %>
-    <%= f.label :password %>
-    <%= @user.errors[:password].join(',') %>
-    <%= f.password_field :password %>
-    <%= f.label :password_confirmation %>
-    <%= @user.errors[:password_confirmation].join(',') %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit "sign up" %>
+  <%= form_for @user, :url => users_path, :html => {:data => {:abide => ''}} do |f| %>
+    
+    <%= f.text_field :first_name, placeholder: "first name" %>
+    <% unless @user.errors[:first_name].empty? %>
+      <%=raw("<small class='error' id='errorMessage'>") + @user.errors[:first_name].join(',') + raw("</small>") %>
+    <% end %>
+
+    <%= f.text_field :last_name, placeholder: "last name" %>
+    <% unless @user.errors[:last_name].empty? %>
+      <%=raw("<small class='error' display='none'>") + @user.errors[:last_name].join(',') + raw("</small>") %>
+    <% end %>
+    
+    <%= f.email_field :email, placeholder: "email" %>
+    <% unless @user.errors[:email].empty? %>
+      <%=raw("<small class='error' display='none'>") + @user.errors[:email].join(',') + raw("</small>") %>
+    <% end %>
+
+    <%= f.password_field :password, placeholder: "password" %>
+    <% unless @user.errors[:password].empty? %>
+      <%=raw("<small class='error' display='none'>") + @user.errors[:password].join(',') + raw("</small>") %>
+    <% end %>
+    
+
+    <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
+    <% unless @user.errors[:password_confirmation].empty? %>
+      <%=raw("<small class='error' display='none'>") + @user.errors[:password_confirmation].join(',') + raw("</small>") %>
+    <% end %>
+    
+    <%= f.submit "sign up", class: "button" %>
   <% end %>
 
 </div>
