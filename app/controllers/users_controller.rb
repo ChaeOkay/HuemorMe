@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login @user
-      @user.groups.create(name: "All")
       redirect_to user_path(@user), notice: "Welcome #{@user.first_name}"
     else
       render new_user_path
@@ -16,14 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.bridges.empty?
+    if current_user.bridge == nil
       redirect_to new_user_bridge_path(current_user)
-    elsif ip_changed?
-      redirect_to edit_user_bridge_path(current_user, current_user.bridges.first)
+    # elsif ip_changed?
+    #   redirect_to edit_user_bridge_path(current_user, current_user.bridge)
     else
       @lamps = current_user.lamps
-      @bridge = current_user.bridges.first
-      @groups = current_user.groups
+      @bridge = current_user.bridge
     end
   end
 
