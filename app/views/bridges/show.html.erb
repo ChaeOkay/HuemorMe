@@ -2,7 +2,10 @@
 
 <%= flash[:notice] %>
 
+<!-- scanning for lamps -->
+
+
 <p>Click here to find your lamps:</p>
 
 <%= button_to "Add Lamps", {:controller => :lamps,
-    :action => 'create', :bridge_id => @bridge.id }, :method => 'post' %>
+    :action => 'create', :bridge_id => @bridge.id }, :method => 'post', id: "addLamps", data: {ip: "#{current_user.bridge.ip}"} %>

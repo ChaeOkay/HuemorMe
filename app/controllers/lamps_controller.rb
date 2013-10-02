@@ -1,12 +1,11 @@
 class LampsController < ApplicationController
 
   def create
-    bridge = Bridge.find(params[:bridge_id])
-    get_lights(bridge).each do |lamp|
-      lamp = Lamp.new(bridge: bridge, hue_number: lamp,
-        group_id: current_user.groups.find_by_name("All").id)
+    lamp_array = params[:lamp_ids].split(",")
+    lamp_array.each do |id|
+      lamp = Lamp.new(bridge_id: params[:bridge_id], light_identifier: id)
       unless lamp.save
-        flash[:notice] = lamp.errors.messages[:hue_number]
+        flash[:notice] = "An error occured while saving your lamps"
       end
     end
     redirect_to user_path(current_user)
