@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user, only: [:show]
 
   def new
     @user = User.new
@@ -44,5 +45,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
+  end
+
+  def signed_in_user
+    redirect_to new_user_path unless logged_in?
   end
 end

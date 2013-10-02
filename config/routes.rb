@@ -15,7 +15,7 @@ Huemorme::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
 
-  root to: "users#new"
+  root to: "users#show"
 
   match '/api', to: 'apis#show', via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
