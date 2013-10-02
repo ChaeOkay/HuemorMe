@@ -18,6 +18,8 @@ Huemorme::Application.routes.draw do
   root to: "users#new"
 
   match '/api', to: 'apis#show', via: 'get'
-
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/setup', to: 'users#setup', via: 'get'
+  match '/download', to: 'users#download', via: 'get'
 end

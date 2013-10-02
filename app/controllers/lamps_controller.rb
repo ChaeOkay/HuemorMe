@@ -9,7 +9,7 @@ class LampsController < ApplicationController
         flash[:notice] = lamp.errors.messages[:hue_number]
       end
     end
-    redirect_to user_path(current_user)
+    redirect_to setup_path
   end
 
   def settings
