@@ -29,7 +29,15 @@ class UsersController < ApplicationController
   end
 
   def download
-
+    @config_yaml = "---\nIP: 192.168.0.152\nEMAIL: me@me.com"
+    @hue_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/hue.rb')).body
+    @gemfile = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/Gemfile')).body
+    @gemfile_lock = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/Gemfile.lock')).body
+    @bridge_controller_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/lib/bridge_controller.rb')).body
+    @lamp_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/lib/lamp.rb')).body
+    @lamp_controller_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/lib/lamp_controller.rb')).body
+    @lamp_requests_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/lib/lamp_requests.rb')).body
+    @pi_controller_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/lib/pi_controller.rb')).body
   end
 
   private
