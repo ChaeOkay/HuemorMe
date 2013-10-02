@@ -9,8 +9,8 @@ class ApisController < ApplicationController
     user.lamps.each do |lamp|
       id = lamp.light_identifier
       lamp_commands[id] = {
-                            (lamp.on ? "turn_off" : "turn_on") => nil,
-                            (lamp.effect == "colorloop" ? "colorloop_off" : "colorloop_on") => nil,
+                            (lamp.on ? "turn_on" : "turn_off") => nil,
+                            (lamp.effect == "colorloop" ? "colorloop_on" : "colorloop_off") => nil,
                             "set_brightness" => lamp.brightness
                           } 
     end
