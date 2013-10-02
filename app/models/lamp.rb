@@ -9,4 +9,6 @@ class Lamp < ActiveRecord::Base
   belongs_to :bridge
   has_one :user, through: :bridge
 
+  def send_command
+  end
 end
