@@ -6,4 +6,3 @@ user = User.create({ first_name: "Frederick",
                       password_confirmation: "test1234",
                       username: "unclefredshouse" })
 
-user.groups.create(name: "All")
