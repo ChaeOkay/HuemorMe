@@ -59,7 +59,7 @@ module LampRequests
   end
 
   def base_uri
-    "http://#{self.bridge.ip}/api/1234567890/lights/#{self.hue_number}" #stub
+    "http://#{self.bridge.ip}/api/1234567890/lights/#{self.light_identifier}" #stub
   end
 
   def state
