@@ -1,3 +1,5 @@
+require 'net/http'
+
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:show]
 
@@ -18,8 +20,6 @@ class UsersController < ApplicationController
   def show
     if current_user.bridge == nil
       redirect_to new_user_bridge_path(current_user)
-    # elsif ip_changed?
-    #   redirect_to edit_user_bridge_path(current_user, current_user.bridge)
     else
       @lamps = current_user.lamps
       @bridge = current_user.bridge
