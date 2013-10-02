@@ -11,35 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930171714) do
+ActiveRecord::Schema.define(version: 20131002003334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bridges", force: true do |t|
     t.string   "ip"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "device_id"
-  end
-
-  create_table "groups", force: true do |t|
-    t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "lamps", force: true do |t|
-    t.string  "name"
-    t.boolean "on",         default: false
-    t.integer "bridge_id"
-    t.string  "hue_number"
-    t.integer "group_id"
+    t.string   "light_identifier"
+    t.integer  "bridge_id"
+    t.boolean  "on",               default: false
+    t.string   "color"
+    t.string   "effect"
+    t.string   "brightness"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "lamps", ["group_id"], name: "index_lamps_on_group_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name",      null: false
