@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20131002211731) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
+    t.string   "secret_token"
   end
 
 end
