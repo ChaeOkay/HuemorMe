@@ -24,8 +24,9 @@ module LampRequests
     self.save
   end
 
-  def adjust_brightness(args)
+  def set_brightness(args)
     self.brightness = args[:brightness]
+    self.save
   end
 
   def turn_colorloop_on
