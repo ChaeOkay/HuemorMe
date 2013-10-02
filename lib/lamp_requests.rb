@@ -14,33 +14,18 @@ module LampRequests
   end
 
 # BRIGHTNESS
-  def set_brightness(args)
-    body = { 'bri' => args[:brightness].to_i }
-    update_lamp(body)
-  end
-
-  def state_brightness
-    state['bri']
+  def adjust_brightness(args)
+    lamp.brightness = args[:brightness]
   end
 
   # COLORLOOP
-  def toggle_colorloop
-    body = colorloop? ? {'effect' => 'none'} : {'effect' => 'colorloop'}
-    update_lamp(body)
-  end
-
-  def colorloop?
-    state['effect'] == 'colorloop' ? true : false
+  def toggle_colorloop(args)
+    lamp.effect = args[:effect]
   end
 
   # ON/OFF
   def toggle_on_off
-    body = on? ? {'on' => false} : {'on' => true}
-    update_lamp(body)
-  end
-
-  def on?
-    state['on']
+    lamp.on = lamp.on ? false : true
   end
 
 
