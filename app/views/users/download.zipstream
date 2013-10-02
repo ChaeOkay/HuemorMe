@@ -1,0 +1,2 @@
+zip.write "config.yaml", @config_yaml
+zip.write "lib/lamp.rb", @lamp_rb

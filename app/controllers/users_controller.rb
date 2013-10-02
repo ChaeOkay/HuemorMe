@@ -25,6 +25,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def download
+    @lamp_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/master/lib/lamp.rb')).body
+    @config_yaml = "---\nIP: 192.168.0.152\nEMAIL: me@me.com"
+  end
+
   private
 
   def user_params

@@ -20,4 +20,7 @@ Huemorme::Application.routes.draw do
   match '/api', to: 'apis#show', via: 'get'
 
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  get '/download', to: 'users#download'
+
 end
