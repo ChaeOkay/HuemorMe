@@ -1,0 +1,9 @@
+zip.write "config.yaml", @config_yaml
+zip.write "hue.rb", @hue_rb
+zip.write "Gemfile", @gemfile
+zip.write "Gemfile.lock", @gemfile_lock
+zip.write "lib/bridge_controller.rb", @bridge_controller_rb
+zip.write "lib/lamp.rb", @lamp_rb
+zip.write "lib/lamp_controller.rb", @lamp_controller_rb
+zip.write "lib/lamp_requests.rb", @lamp_requests_rb
+zip.write "lib/pi_controller.rb", @pi_controller_rb
