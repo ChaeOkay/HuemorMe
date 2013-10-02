@@ -10,23 +10,16 @@ FactoryGirl.define do
     username "username_test"
   end
 
-  trait :with_bridges do
+  trait :with_bridge do
     after :create do |user|
       FactoryGirl.create_list :bridge, 1, :user => user
     end
   end
 
-  trait :with_groups do
-    after :create do |user|
-      FactoryGirl.create_list :group, 1, :user => user
-    end
-  end
-
   factory :lamp do
     bridge
-    name "kitchen"
     on false
-    hue_number "1"
+    light_identifier "1"
   end
 
   factory :bridge do
@@ -40,10 +33,4 @@ FactoryGirl.define do
       FactoryGirl.create_list :lamp, 1, :bridge => bridge
     end
   end
-
-  factory :group do
-    user
-    name "All"
-  end
-
 end

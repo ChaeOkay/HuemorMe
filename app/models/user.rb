@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
         message: "must be valid email address" }
   before_save :lowercase_email
 
-  has_many :bridges
-  has_many :lamps, through: :bridges
+  has_one :bridge
+  has_many :lamps, through: :bridge
   has_many :groups
 
 
