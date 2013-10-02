@@ -15,6 +15,7 @@ gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 gem "compass-rails", "~> 2.0.alpha.0"
 gem 'zurb-foundation', '~> 4.0.0'
+gem 'zipstream'
 
 group :test, :development do
   gem 'rspec-rails'

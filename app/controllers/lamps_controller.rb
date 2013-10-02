@@ -11,7 +11,7 @@ class LampsController < ApplicationController
         end
       end
     end
-    redirect_to user_path(current_user)
+    redirect_to setup_path
   end
 
   def settings
