@@ -9,6 +9,7 @@ class Lamp < ActiveRecord::Base
   belongs_to :bridge
   has_one :user, through: :bridge
 
-  def send_command
+  def send_command(command, args = nil)
+    args ? self.send(command, args) : self.send(command)
   end
 end
