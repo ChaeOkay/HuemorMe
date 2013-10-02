@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<h3>We've found your bridge!</h3>
+
+<p>Click link to download the HuemorMe application</p>
+<p><%= link_to "Download", download_path %></p>
+</br>
+<p><%= link_to "Continue", bridge_path(@bridge) %></p>
