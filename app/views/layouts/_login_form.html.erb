@@ -2,7 +2,7 @@
 <%= flash[:notice] %>
 
 <%= form_for :session, :url => sessions_path do |f| %>
-  <%= f.text_field :email %>
-  <%= f.password_field :password %>
-  <%= f.submit "login" %>
+  <%= f.text_field :email, placeholder: "email" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.submit "login", class: "button small" %>
 <% end %>
