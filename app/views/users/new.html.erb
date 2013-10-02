@@ -9,26 +9,28 @@
 
   <%= flash[:success] %>
 
-  <%= form_for @user, :url => users_path do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= @user.errors[:first_name].join(',') %>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <%= form_for @user, :url => users_path, :html => {:data => {:abide => ''}} do |f| %>
+    
+    <%= f.text_field :first_name, placeholder: "first name" %>
+    <% unless @user.errors[:first_name].empty? %>
+      <%=raw("<small class='error'>") + @user.errors[:first_name].join(',') + raw("</small>") %>
+    <% end %>
     <%= @user.errors[:last_name].join(',') %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :last_name, placeholder: "last name" %>
+    
     <%= @user.errors[:email].join(',') %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.email_field :email, placeholder: "email" %>
+    
     <%= @user.errors[:username].join(',') %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.text_field :username, placeholder: "username" %>
+    
     <%= @user.errors[:password].join(',') %>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password, placeholder: "password" %>
+    
     <%= @user.errors[:password_confirmation].join(',') %>
-    <%= f.submit "sign up" %>
+    <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
+    
+    <%= f.submit "sign up", class: "button" %>
   <% end %>
 
 </div>
