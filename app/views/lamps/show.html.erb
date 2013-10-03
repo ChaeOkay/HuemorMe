@@ -1,16 +1,11 @@
-<h4 class="nametitle">Lamp <%=@lamp.light_identifier%></h4>
-<!-- <ul data-orbit data-options="timer_speed:0; timer:false;
-navigation_arrows: false; slide_number: false; bullets: false; timer: false;" > -->
-  <li>
-    <div class="lamplist">
-      <div class="lamptitle">
-        Lamp <%=@lamp.light_identifier%>
-      </div>
-      <div class="imageblock">
-        <%= image_tag("arrow_off.png") %>
-      </div>
-    <div>
-      <%= render "/lamps/lampform", :lamp => @lamp %>
+<h4 id="link_to_lamps"><%= link_to "Return to lamps", user_path(current_user) %></h4>
+  <div class="lamplist">
+    <div class="lamptitle">
+      Lamp <%=@lamp.light_identifier%>
     </div>
-  </li>
-<!-- </ul> -->
+    <div class="imageblock">
+      <img alt="Arrow off" src='/images/arrow_off.png'>
+    </div>
+  <div class="lampform">
+    <%= render "/lamps/lampform", :lamp => @lamp %>
+  </div>
