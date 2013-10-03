@@ -5,9 +5,17 @@ describe LampsController do
     describe 'invalid attributes' do
       let(:user) { create(:user, :with_bridge) }
 
-      it "creates a flash[:lamp] notice" do
-        post :create, bridge_id: user.bridge.id, lamp_ids: "0,0"
-        expect{response}.to redirect_to setup_path
+      it "does not save lamps that have the same identifier" do
+        expect{ post :create, bridge_id: user.bridge.id, lamp_ids: "0,0" }.to change(Lamp,:count).by 1
+      end
+
+      it "does not save lamps that are not connected to the bridge" do
+        expect{ post :create, bridge_id: user.bridge.id, lamp_ids: "" }.to_not change(Lamp,:count)
+      end
+
+      it "expects flash message when no lamps are connected" do
+        post :create, bridge_id: user.bridge.id, lamp_ids: ""
+        expect(flash[:lamp].first).to eq "No lights connected to bridge."
       end
     end
 
