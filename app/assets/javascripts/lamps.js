@@ -139,5 +139,4 @@ $(document).ready(function(){
 	$('.lamp').each(function(i,elem){
 		lamps.push(new Lamp($(elem)))
 	})
-})
-
+});
