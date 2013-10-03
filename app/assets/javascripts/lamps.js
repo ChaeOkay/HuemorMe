@@ -8,6 +8,7 @@ Lamp.prototype = {
 	init: function() {
 		this.set_toggle_on_off_listener();
 		this.adjustBrightness();
+		this.set_color_toggle_on_off_listener();
 	},
 	// init: function() {
 	// 	this.adjustBrightness();
@@ -15,6 +16,36 @@ Lamp.prototype = {
 	// 	this.toggle_on_off();
 	// 	this.toggle_colorloop_on_off();
 	// },
+	set_color_toggle_on_off_listener: function(){
+		var self = this
+		self.$getColorOnOffForm().on('ajax:success', function(){
+			self.colorToggleOnOff();
+		})
+	},
+
+	$getColorOnOffForm: function() {
+		//colorloop
+		return this.$elem.find(".colorloop")
+	},
+
+	colorToggleOnOff: function(){
+		if (this.getColorOnOffHiddenField().val() === "turn_colorloop_on") {
+			this.getColorOnOffHiddenField().val("turn_colorloop_off")
+			this.getColorOnOffButton().val("Turn colorloop off?")
+			console.log("in conditional if")
+		} else {
+			this.getColorOnOffHiddenField().val("turn_colorloop_on")
+			this.getColorOnOffButton().val("Turn colorloop on?")
+			console.log("in conditional else")
+		}
+	},
+
+	getColorOnOffHiddenField:function(){
+		return this.$getColorOnOffForm().find(".colorloop_hidden_value")
+	},
+	getColorOnOffButton:function(){
+		return this.$getColorOnOffForm().find('.tiny.button')
+	},
 
 	adjustBrightness: function(){
 	  this.$getSlider().slider({
