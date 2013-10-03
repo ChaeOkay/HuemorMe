@@ -58,6 +58,10 @@ var Lamp = {
 	}
 }
 
+function Lamp(){
+
+}
+
 $(document).ready(function(){
-	Lamp.init();
+		Lamp.init();
 })
