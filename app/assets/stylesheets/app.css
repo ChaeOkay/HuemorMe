@@ -27,7 +27,57 @@ img {
   text-align: center;
   font-size: 3.5em;
 }
-
 .orbit-slide-number {
   display: none;
 }
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.lamplist {
+  background: #f5f5f5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.lamplist img {
+  display: block;
+}
+
+.lampform {
+  position: relative;
+  width: 75%;
+  margin: auto;
+}
+
+/*.lamp {
+  display: block;
+}*/
+/*
+.orbit-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background: whitesmoke;
+}
+.orbit-container .orbit-slides-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.orbit-container .orbit-slides-container img {
+  display: block;
+}
+
+.orbit-container .orbit-slides-container > * {
+  position: relative;
+  float: left;
+  height: 100%;
+}*/
+
