@@ -1,10 +1,14 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<div class="row">
+	<div class="large-10 large-centered columns text-center">
+		<% if flash[:notice] %>
+		  <p><%= flash[:notice] %></p>
+		<% end %>
 
-<h3>Lamps detected!</h3>
+		<h2>Lamps detected!</h2>
 
-<p>Click link to download the HuemorMe application</p>
-<p><%= link_to "Download", {:controller => "users", :action => "download"} %></p>
-</br>
-<p><%= link_to "Continue", user_path(current_user) %></p>
+		<p>Click link to download the HuemorMe application</p>
+		<p><%= link_to "Download", {:controller => "users", :action => "download"}, class: "large button expand round" %></p>
+		</br>
+		<p><%= link_to "Continue", user_path(current_user) %></p>
+	</div>
+</div>

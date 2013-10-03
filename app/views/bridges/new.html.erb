@@ -1,14 +1,17 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-<p id="connect_message">Please press the link button on your bridge then hit the "Connect your Bridge" button</p>
-<button type="button" class="button" id="getIP">Connect Your Bridge</button>
+<div class="row">
+	<div class="large-10 large-centered columns text-center">
+		<% if flash[:notice] %>
+		  <p><%= flash[:notice] %></p>
+		<% end %>
+		<p id="connect_message">Please press the link button on your bridge then hit the "Connect your Bridge" button</p>
+		<button type="button" class="button" id="getIP">Connect Your Bridge</button>
 
 
-<%= form_for [current_user, @bridge], html: { class: "new_bridge hide" } do |f| %>
-	<p id="connected_bridge">Bridge successfully connected! Please press button to continue</p>
-	<%= f.hidden_field :device_id, value: "nil", id: "deviceId" %>
-	<%= f.hidden_field :ip, value: "nil", id: "bridgeIp" %>
-  <%= f.submit "Register Your Bridge", class: "button success" %>
-<% end %>
-
+		<%= form_for [current_user, @bridge], html: { class: "new_bridge hide" } do |f| %>
+			<p id="connected_bridge">Bridge successfully connected! Please press button to continue</p>
+			<%= f.hidden_field :device_id, value: "nil", id: "deviceId" %>
+			<%= f.hidden_field :ip, value: "nil", id: "bridgeIp" %>
+		  <%= f.submit "Register Your Bridge", class: "button success" %>
+		<% end %>
+	</div>
+</div>
