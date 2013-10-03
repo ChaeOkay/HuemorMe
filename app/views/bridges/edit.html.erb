@@ -1,9 +1,15 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<div class="row">
+	<div class="large-10 large-centered columns text-center">
 
-"Push the button"
+		<% if flash[:notice] %>
+		  <p><%= flash[:notice] %></p>
+		<% end %>
 
-<%= form_for [current_user, @bridge] do |f| %>
-  <%= f.submit "Update Your Bridge IP" %>
-<% end %>
+		"Push the button"
+
+		<%= form_for [current_user, @bridge] do |f| %>
+		  <%= f.submit "Update Your Bridge IP" %>
+		<% end %>
+
+	</div>
+</div>
