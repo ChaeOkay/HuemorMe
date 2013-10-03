@@ -16,17 +16,14 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "HuemorMe" %></title>
   	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= stylesheet_link_tag "farbtastic" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-		<%= render "/layouts/nav_bar" %>
+    <%= render "/layouts/nav_bar" %>
     <%= yield %>
 
-
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "farbtastic" %>
+
   </body>
 </html>
