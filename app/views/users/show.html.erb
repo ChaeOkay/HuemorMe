@@ -5,7 +5,7 @@
 <% end %>
 
 <h4 class="nametitle"><%= current_user.first_name %>'s lamps</h4>
-<ul data-orbit data-options="timer_speed:0; timer:false">
+<ul id="lamp-orbit" data-orbit data-options="timer_speed:0; timer:false">
   <% @lamps.each do |lamp| %>
   <li>
     <div class="lamplist">

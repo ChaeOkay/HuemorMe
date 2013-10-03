@@ -42,6 +42,10 @@ img {
   display: none;
 }
 
+#lamp-orbit {
+  display: none;
+}
+
 .hide {
   position: absolute !important;
   top: -9999px !important;
