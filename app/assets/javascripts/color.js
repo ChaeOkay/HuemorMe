@@ -1,6 +1,19 @@
+// window.onload = function() {
+// 	window.addEventListener('shake', shakeEventDidOccur, false);
+// 		console.log("SHAKE")
+// 		//function to call when shake occurs
+// 		function shakeEventDidOccur () {
+
+// 		  //put your own code here etc.
+// 		  	var randomColor = '#' + (Math.random()*0xFFFFFF<<0).toString(16);
+// 		  	$.farbtastic('#colorpicker').setColor(randomColor)
+// 		  	$('.imageblock').css("backgroundColor", randomColor)
+// 	}
+// }
+
 function callback(color) {
 	// console.log("callback: " + $.farbtastic('#colorpicker').hsl)
-
+			$('.imageblock').css("backgroundColor", color)
 			var hsl = getColor()
 			var hue = Math.floor(hsl[0]*65535);
 			var saturation = Math.floor(hsl[1]*255);
@@ -26,5 +39,7 @@ $("#colorpicker").mouseup(function(){
 })
 
 $(document).ready(function() {
+	$('#colorpicker').addTouch();
 	$.farbtastic('#colorpicker', callback)
 });
+
