@@ -9,12 +9,16 @@ img {
   position: relative;
 }
 
+<<<<<<< HEAD
 .hiddenform {
+=======
+.hiddenform{
+>>>>>>> master
   display: none;
 }
 
 .imageblock {
-  width: 100%;
+  width: 100%
 }
 
 .nametitle{
