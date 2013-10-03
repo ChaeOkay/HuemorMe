@@ -48,6 +48,24 @@ describe "LampRequests" do
       end
     end
 
+    context "#set_color" do
+      it "returns color" do
+        args = { color: '10000' }
+        lamp.set_color(args)
+        expect(lamp.color).to eq '10000'
+      end
+    end
+
+    context '#set_color_and_sat' do
+      it 'changes color, saturation, brightness' do
+        args = { color: '10000', saturation: '100', brightness: '100' }
+        lamp.set_color_and_sat(args)
+        expect(lamp.color).to eq '10000'
+        expect(lamp.saturation).to eq '100'
+        expect(lamp.brightness).to eq '100'
+      end
+    end
+
     context "#set_brightness" do
       it "returns 50" do
         args = { brightness: '50' }

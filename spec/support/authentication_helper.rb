@@ -1,6 +1,6 @@
 module AuthenticationHelper
-	def logged_in?
-	  ApplicationController.any_instance.stub(:logged_in?){ true }
+	def logged_in?(bool)
+	  ApplicationController.any_instance.stub(:logged_in?){ bool }
 	end
 
   def current_user(user)
