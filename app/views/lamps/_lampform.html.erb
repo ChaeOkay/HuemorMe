@@ -1,8 +1,10 @@
 <div class="lamp">
+	<div class="hiddenform">
 	<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: { method: 'GET', class: "on_off"}, remote: true)  do |f| %>
 	  <%= f.hidden_field :command, value: "#{lamp.on ? 'turn_off' : 'turn_on'}", class: "submit_hidden_value" %>
-	  <%= f.submit "Turn #{lamp.say_on_off}?", class: "tiny button radius" %>
+	  <%= f.submit "Turn #{lamp.say_on_off}?" %>
 	<% end %>
+	</div>
 
 	<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: { method: 'GET', class: "colorloop"}, remote: true)  do |f| %>
 	  <%= f.hidden_field :command, value: "#{lamp.effect == 'colorloop' ? 'turn_colorloop_off' : 'turn_colorloop_on'}", class: "colorloop_hidden_value" %>
@@ -17,7 +19,7 @@
 	<% end %>
 
 	<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: {method: 'GET', class: "brightness"})  do |f| %>
-		
+
 		<div class="colorpicker"><form><input type="hidden" class="color" name="color" value="#123456" /></form></div>
 
 	<% end %>
