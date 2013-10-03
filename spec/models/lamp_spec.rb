@@ -13,4 +13,10 @@ describe Lamp do
       expect(lamp.on).to eq false
     end
   end
+
+  context "#send_command" do
+    it "should return off when calling say_on_off" do
+      lamp.send_command("say_on_off") == "off"
+    end
+  end
 end
