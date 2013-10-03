@@ -1,21 +1,25 @@
-<% if flash[:lamp] %>
-  <% flash[:lamp].each do |notice| %>
-    <p class="error"><%= notice %></p>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="large-10 large-centered columns text-center">
+    <% if flash[:lamp] %>
+      <% flash[:lamp].each do |notice| %>
+        <p class="error"><%= notice %></p>
+      <% end %>
+    <% end %>
 
-<h4 class="nametitle"><%= current_user.first_name %>'s lamps</h4>
-<ul data-orbit data-options="timer_speed:0; timer:false">
-  <% @lamps.each do |lamp| %>
-  <li>
-    <div class="lamplist">
-      <div class="lamptitle">
-          <%=link_to "Lamp #{lamp.light_identifier}", bridge_lamp_path(lamp.bridge, lamp) %>
-      </div>
-      <div class="imageblock">
-        <%= image_tag("off.png") %>
-      </div>
-    </div>
-  </li>
-  <% end %>
-</ul>
+    <h4 class="nametitle"><%= current_user.first_name %>'s lamps</h4>
+    <ul data-orbit data-options="timer_speed:0; timer:false">
+      <% @lamps.each do |lamp| %>
+      <li>
+        <div class="lamplist">
+          <div class="lamptitle">
+              <%=link_to "Lamp #{lamp.light_identifier}", bridge_lamp_path(lamp.bridge, lamp) %>
+          </div>
+          <div class="imageblock">
+            <%= image_tag("off.png") %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,10 +1,14 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<div class="row">
+	<div class="large-10 large-centered columns text-center">
+		<% if flash[:notice] %>
+		  <p><%= flash[:notice] %></p>
+		<% end %>
 
-<h3>We've found your bridge!</h3>
+		<h3>We've found your bridge!</h3>
 
-<p>Click link to download the HuemorMe application</p>
-<p><%= link_to "Download", download_path %></p>
-</br>
-<p><%= link_to "Continue", bridge_path(@bridge) %></p>
+		<p>Click link to download the HuemorMe application</p>
+		<p><%= link_to "Download", download_path, :class => "large button expand round" %></p>
+		</br>
+		<p><%= button_to "Continue", bridge_path(@bridge) %></p>
+	</div>
+</div>
