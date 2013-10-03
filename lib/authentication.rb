@@ -8,7 +8,7 @@ module Authentication
   end
 
   def logged_in?
-    true if session[:user_id]
+    session[:user_id]
   end
 
   def log_out

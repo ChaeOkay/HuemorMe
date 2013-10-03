@@ -8,6 +8,7 @@ Lamp.prototype = {
 	init: function() {
 		this.set_toggle_on_off_listener();
 		this.adjustBrightness();
+		this.on_off()
 		this.set_color_toggle_on_off_listener();
 	},
 	// init: function() {
@@ -76,6 +77,19 @@ Lamp.prototype = {
 		return parseInt(this.$getBrightness().attr('data-brightness'))
 	},
 
+	on_off: function(){
+    $('.imageblock').on('click', function(e){
+      e.preventDefault()
+      $('form.on_off').submit()
+
+      if ($('.imageblock img').attr('src') == '/assets/arrow_on.png') {
+        $('.imageblock img').attr('src', '/assets/arrow_off.png').fadeIn("slow")
+      } else {
+        $('.imageblock img').attr('src', '/assets/arrow_on.png').fadeIn("slow")
+      }
+    })
+  },
+
 	set_toggle_on_off_listener: function(){
 		var self = this
 		self.$getOnOffForm().on('ajax:success', function(){
@@ -93,7 +107,7 @@ Lamp.prototype = {
 			this.getOnOffHiddenField().val("turn_on")
 			this.getOnOffButton().val("Turn On?")
 		}
-	},	
+	},
 	getOnOffHiddenField:function(){
 		return this.$getOnOffForm().find('.submit_hidden_value')
 	},
