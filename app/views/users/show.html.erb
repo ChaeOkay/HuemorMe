@@ -5,7 +5,7 @@
 <% end %>
 
 <h4 class="nametitle"><%= current_user.first_name %>'s lamps</h4>
-<ul data-orbit data-options="timer_speed:0; animation_speed:0; timer:false">
+<ul data-orbit data-options="timer_speed:0; timer:false">
   <% @lamps.each do |lamp| %>
   <li>
     <div class="lamplist">
@@ -13,7 +13,7 @@
           <%=link_to "Lamp #{lamp.light_identifier}", bridge_lamp_path(lamp.bridge, lamp) %>
       </div>
       <div class="imageblock">
-        <%= image_tag("test.png") %>
+        <%= image_tag("off.png") %>
       </div>
     </div>
   </li>
