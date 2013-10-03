@@ -19,4 +19,8 @@ class LampsController < ApplicationController
     @lamp.send_command(params[:lamp][:command], params[:lamp][:data])
     render json: {}
   end
+
+  def show
+    @lamp = Lamp.find(params[:id])
+  end
 end
