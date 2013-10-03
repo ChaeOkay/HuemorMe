@@ -5,15 +5,13 @@
 <% end %>
 
 <h1>Lamps</h1>
-<ul data-orbit data-options="timer_speed:0; animation_speed:0; timer:false">
-  <% @lamps.each do |lamp| %>
-  <li>
-    <div class="lamplist">
-      <div>Lamp <%= lamp.light_identifier %></div>
-      <div>
-        <%= render "/lamps/lampform", :lamp => lamp %>
-      </div>
+<% @lamps.each do |lamp| %>
+<li>
+  <div class="lamplist">
+    <div>Lamp <%= lamp.light_identifier %></div>
+    <div>
+      <%= render "/lamps/lampform", :lamp => lamp %>
     </div>
-  </li>
-  <% end %>
-</ul>
+  </div>
+</li>
+<% end %>

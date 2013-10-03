@@ -16,6 +16,7 @@
 //= require foundation
 //= require turbolinks
 //= require lamps
+//= require farbtastic
 //= require_tree .
 
 $(document).foundation()
