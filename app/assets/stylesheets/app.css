@@ -9,6 +9,10 @@ img {
   position: relative;
 }
 
+.hiddenform {
+  display: none;
+}
+
 .imageblock {
   width: 100%;
 }
