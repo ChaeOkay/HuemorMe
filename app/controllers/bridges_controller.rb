@@ -18,9 +18,9 @@ class BridgesController < ApplicationController
     @bridge = Bridge.find(params[:id])
   end
 
-  def edit
-    @bridge = current_user.bridges.first
-  end
+  # def edit
+  #   @bridge = current_user.bridges.first
+  # end
 
   # def update
   #   ip = get_local_ip

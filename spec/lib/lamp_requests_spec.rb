@@ -33,5 +33,41 @@ describe "LampRequests" do
         expect(lamp.say_brightness).to eq '30'
       end
     end
+
+    context "#turn_on" do
+      it "returns true" do
+        lamp.turn_on
+        expect(lamp.on).to be_true
+      end
+    end
+
+    context "#turn_off" do
+      it "returns false" do
+        lamp.turn_off
+        expect(lamp.on).to be_false
+      end
+    end
+
+    context "#set_brightness" do
+      it "returns 50" do
+        args = { brightness: '50' }
+        lamp.set_brightness(args)
+        expect(lamp.brightness).to eq '50'
+      end
+    end
+
+    context '#turn_colorloop_on' do
+      it 'returns colorloop' do
+        lamp.turn_colorloop_on
+        expect(lamp.effect).to eq 'colorloop'
+      end
+    end
+
+    context '#turn_colorloop_off' do
+      it 'returns non' do
+        lamp.turn_colorloop_off
+        expect(lamp.effect).to eq 'none'
+      end
+    end
   end
 end
