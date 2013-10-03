@@ -24,6 +24,18 @@ module LampRequests
     self.save
   end
 
+  def set_color(args)
+    self.color = args[:color]
+    self.save
+  end
+
+  def set_color_and_sat(args)
+    self.color = args[:color]
+    self.saturation = args[:saturation]
+    self.brightness = args[:brightness]
+    self.save
+  end
+
   def set_brightness(args)
     self.brightness = args[:brightness]
     self.save

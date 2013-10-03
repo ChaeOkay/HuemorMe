@@ -82,10 +82,10 @@ Lamp.prototype = {
       e.preventDefault()
       $('form.on_off').submit()
 
-      if ($('.imageblock img').attr('src') == '/assets/arrow_on.png') {
-        $('.imageblock img').attr('src', '/assets/arrow_off.png').fadeIn("slow")
+      if ($('.imageblock img').attr('src') == '/assets/images/arrow_on.png') {
+        $('.imageblock img').attr('src', '/assets/images/arrow_off.png')
       } else {
-        $('.imageblock img').attr('src', '/assets/arrow_on.png').fadeIn("slow")
+        $('.imageblock img').attr('src', '/assets/images/arrow_on.png')
       }
     })
   },
