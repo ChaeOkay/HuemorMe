@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
+//= require jqueryuiipad
 //= require foundation
 //= require turbolinks
 //= require lamps
@@ -21,5 +22,3 @@
 //= require shake
 
 $(document).foundation()
-
-

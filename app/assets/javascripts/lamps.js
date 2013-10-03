@@ -82,10 +82,10 @@ Lamp.prototype = {
       e.preventDefault()
       $('form.on_off').submit()
 
-      if ($('.imageblock img').attr('src') == '/assets/arrow_on.png') {
-        $('.imageblock img').attr('src', '/assets/arrow_off.png')
+      if ($('.imageblock img').attr('src') == '/images/arrow_on.png') {
+        $('.imageblock img').attr('src', '/images/arrow_off.png')
       } else {
-        $('.imageblock img').attr('src', '/assets/arrow_on.png')
+        $('.imageblock img').attr('src', '/images/arrow_on.png')
       }
     })
   },
@@ -139,4 +139,5 @@ $(document).ready(function(){
 	$('.lamp').each(function(i,elem){
 		lamps.push(new Lamp($(elem)))
 	})
+	$('.slider-input').addTouch()
 });

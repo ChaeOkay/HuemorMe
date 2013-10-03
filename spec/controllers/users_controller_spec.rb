@@ -49,7 +49,7 @@ describe UsersController do
 
   context 'users#show' do
     before do
-      logged_in?
+      logged_in?(true)
       controller.stub(:current_user).and_return(user)
     end
     describe 'user has no bridge' do
@@ -77,7 +77,7 @@ describe UsersController do
   context 'users#download' do
     let(:user) { create(:user, :with_bridge) }
     before do
-      logged_in?
+      logged_in?(true)
       controller.stub(:current_user).and_return(user)
       get :download
     end

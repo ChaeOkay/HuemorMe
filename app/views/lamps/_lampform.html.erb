@@ -15,7 +15,6 @@
 	  <div class="slider-input ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
 	  </div>
 	  <%= f.hidden_field(:command, value: "set_brightness", data: {brightness: lamp.brightness, bridge_id: "#{lamp.bridge.id}", lamp_id: "#{lamp.id}"}, class: "brightvalue") %>
-	  <%= f.submit "Set Brightness to", class: "tiny button radius" %>
 	<% end %>
 
 	<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: {method: 'GET', class: "brightness"})  do |f| %>

@@ -2,14 +2,13 @@ require 'spec_helper'
 
 feature 'Sessions' do
   context 'valid user login' do
-    let(:user) { create(:user, :with_bridges) }
+    let(:user) { create(:user, :with_bridge) }
 
     it "should redirect to user show", :js => true do
       current_user(user)
-      ip_changed?
       visit root_path
       fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
+      fill_in "session_password", with: 'password123'
       click_button "login"
 
       page.current_path.should eq user_path(user)
@@ -21,10 +20,11 @@ feature 'Sessions' do
 
     it 'should redirect to index page' do
       current_user(user)
-      logged_in?
+      logged_in?(true)
       visit user_path(user)
+      logged_in?(false)
       click_button('logout')
-      page.current_path.should eq root_path
+      page.current_path.should eq new_user_path
     end
   end
 end
