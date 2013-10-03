@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def download
-    @config_yaml = "---\nIP: #{current_user.bridge.ip}\nEMAIL: #{current_user.secret_token}"
+    @config_yaml = "---\nIP: #{current_user.bridge.ip}\nTOKEN: #{current_user.secret_token}"
     @hue_rb = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/hue.rb')).body
     @gemfile = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/Gemfile')).body
     @gemfile_lock = Net::HTTP.get_response(URI.parse('https://raw.github.com/jimwong1023/deamonsinsideme/user_download/Gemfile.lock')).body
