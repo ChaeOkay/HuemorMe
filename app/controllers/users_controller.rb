@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     if current_user.bridge == nil
       redirect_to new_user_bridge_path(current_user)
     else
+      @user = current_user
       @lamps = current_user.lamps
       @bridge = current_user.bridge
     end
