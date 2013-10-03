@@ -12,7 +12,9 @@
       <div class="lamptitle">
           <%=link_to "Lamp #{lamp.light_identifier}", bridge_lamp_path(lamp.bridge, lamp) %>
       </div>
-        <%= image_tag("test.png")%>
+      <div class="imageblock">
+        <%= image_tag("test.png") %>
+      </div>
     </div>
   </li>
   <% end %>
