@@ -1,21 +1,44 @@
 require 'spec_helper'
 
 describe LampsController do
-  context "POST #create" do
-    let(:user) { create(:user, :with_bridges, :with_groups)}
+  context "lamps#create" do
+    describe 'invalid attributes' do
+      let(:user) { create(:user, :with_bridge) }
 
-    before do
-      current_user(user)
+      it "creates a flash[:lamp] notice" do
+        post :create, bridge_id: user.bridge.id, lamp_ids: "0,0"
+        expect{response}.to redirect_to setup_path
+      end
     end
 
-    it "increases lamp count when create new lamp" do
-      controller.stub(:get_lights).and_return(["1", "2", "3"])
-      expect { post :create, bridge_id: user.bridges.first }.to change { Lamp.all.count }.by(3)
+    describe "valid attributes" do
+      let(:user) { create(:user, :with_bridge) }
+
+      it "creates a lamp" do
+        expect{ post :create, bridge_id: user.bridge.id, lamp_ids: "1,2" }.to change(Lamp,:count) 
+      end
+    end
+  end
+
+  context 'lamps#settings' do
+    let(:bridge) { create(:bridge, :with_lamps) }
+
+    it 'assigns @lamp' do
+      get :settings, bridge_id: bridge.id, id: bridge.lamps.first.id, lamp:{ "command"=>"turn_on" }
+      expect(:lamp).to_not be_nil
     end
 
-    it "redirects to bridge show with invalid lamp info" do
-      controller.stub(:get_lights).and_return([])
-      expect { post :create, bridge_id: user.bridges.first }.not_to change{ Lamp.all.count }
+    it 'sends turn_on' do
+      get :settings, bridge_id: bridge.id, id: bridge.lamps.first.id, lamp:{ "command"=>"turn_on" }
+      expect{ @lamp.on }.to be_true
+    end
+  end
+
+  context 'lamps#show' do
+    let(:bridge) { create(:bridge, :with_lamps) }
+    it 'assigns @lamp' do
+      get :show, bridge_id: bridge.id, id: bridge.lamps.first.id
+      expect(:lamp).to_not be_nil
     end
   end
 end
