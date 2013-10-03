@@ -11,7 +11,9 @@ class ApisController < ApplicationController
       lamp_commands[id] = {
                             (lamp.on ? "turn_on" : "turn_off") => nil,
                             (lamp.effect == "colorloop" ? "colorloop_on" : "colorloop_off") => nil,
-                            "set_brightness" => lamp.brightness
+                            "set_brightness" => lamp.brightness,
+                            "set_color" => lamp.color,
+                            "set_saturation" => lamp.saturation
                           } 
     end
     
