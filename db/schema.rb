@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002211731) do
+ActiveRecord::Schema.define(version: 20131003172134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 20131002211731) do
     t.string   "light_identifier"
     t.integer  "bridge_id"
     t.boolean  "on",               default: false
-    t.string   "color"
+    t.string   "color",            default: "10000"
     t.string   "effect"
     t.string   "brightness",       default: "0"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "saturation",       default: "100"
   end
 
   create_table "users", force: true do |t|
