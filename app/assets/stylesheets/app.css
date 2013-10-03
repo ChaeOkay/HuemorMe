@@ -18,15 +18,17 @@ img {
   padding-left: 18px;
 }
 
-#link_to_lamps a {
- position: relative;
- float: right;
- text-decoration: none;
- color: black;
- margin: 10px 18px 10px;
+#link_to_lamps {
+  margin: 10px 18px;
+  float: right;
 }
 
-.lamptitle{
+#link_to_lamps a {
+ text-decoration: none;
+ color: black;
+}
+
+.lamptitle {
   width: 50%;
   margin: 0 auto;
   text-align: center;
@@ -43,6 +45,7 @@ img {
 }
 
 .lamplist {
+  clear: right;
   width: 100%;
   background: #f5f5f5;
   list-style: none;
@@ -60,30 +63,3 @@ img {
   width: 75%;
   margin: auto;
 }
-
-/*.lamp {
-  display: block;
-}*/
-/*
-.orbit-container {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  background: whitesmoke;
-}
-.orbit-container .orbit-slides-container {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-.orbit-container .orbit-slides-container img {
-  display: block;
-}
-
-.orbit-container .orbit-slides-container > * {
-  position: relative;
-  float: left;
-  height: 100%;
-}*/
-
