@@ -7,13 +7,16 @@ FactoryGirl.define do
     email "TeSt@teSt.cOm"
     password "password123"
     password_confirmation "password123"
-    username "username_test"
   end
 
   trait :with_bridge do
     after :create do |user|
       FactoryGirl.create_list :bridge, 1, :user => user
     end
+  end
+
+  factory :invalid_user, class: User do
+    email nil
   end
 
   factory :lamp do
@@ -28,7 +31,7 @@ FactoryGirl.define do
   factory :bridge do
     user
     ip "000.000.0.000"
-    id "0000000000000000"
+    device_id "0000000000000000"
   end
 
   trait :with_lamps do
