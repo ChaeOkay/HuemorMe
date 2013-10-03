@@ -2,18 +2,23 @@ require 'spec_helper'
 
 feature 'Lamps' do
   context 'when off' do
-    let(:bridge) { create(:bridge) }
+    let(:lamp) { create(:lamp) }
 
-    it "should show button to turn on" do
-      ip_changed?
-      current_user bridge.user
-      bridge.lamps << Lamp.create(name: "Livingrm", hue_number: "2")
-      Lamp.any_instance.stub(:on?){ false }
-      Lamp.any_instance.stub(:colorloop?){ false }
-      Lamp.any_instance.stub(:say_brightness) { 0 }
-      visit user_path(bridge.user)
-      expect(page.body).to include("Toggle on?")
+    before do
+      current_user lamp.user
+      visit bridge_lamp_path(lamp.bridge, lamp)     
     end
 
+    it "should show image to turn on" do
+      expect(page.body).to have_selector(".imageblock")
+    end
+
+    it "should have button for colorloop" do
+      expect(page.body).to have_selector(".colorloop")
+    end
+
+    it "should have slider for brightness" do
+      expect(page.body).to have_selector(".brightness")
+    end
   end
 end
