@@ -7,7 +7,7 @@ navigation_arrows: false; slide_number: false; bullets: false; timer: false;" > 
         Lamp <%=@lamp.light_identifier%>
       </div>
       <div class="imageblock">
-        <%= image_tag("arrow_off.png") %>
+        <img alt="Arrow off" src='/images/arrow_on.png'>
       </div>
     <div>
       <%= render "/lamps/lampform", :lamp => @lamp %>
