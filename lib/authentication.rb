@@ -10,9 +10,4 @@ module Authentication
   def logged_in?
     session[:user_id]
   end
-
-  def log_out
-  	session.destroy
-  end
-
 end
