@@ -18,6 +18,7 @@
 //= require lamps
 //= require farbtastic
 //= require_tree .
+//= require shake
 
 $(document).foundation()
 

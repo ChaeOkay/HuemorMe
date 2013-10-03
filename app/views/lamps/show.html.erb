@@ -1,11 +1,15 @@
-<h4 id="link_to_lamps"><%= link_to "Return to lamps", user_path(current_user) %></h4>
-  <div class="lamplist">
-    <div class="lamptitle">
-      Lamp <%=@lamp.light_identifier%>
-    </div>
-    <div class="imageblock">
-      <%= image_tag("arrow_off.png") %>
-    </div>
-  <div class="lampform">
-    <%= render "/lamps/lampform", :lamp => @lamp %>
+<div class="row">
+  <div class="large-10 large-centered columns text-center">
+    <h4 id="link_to_lamps"><%= link_to "Return to lamps", user_path(current_user) %></h4>
+      <div class="lamplist">
+        <div class="lamptitle">
+          Lamp <%=@lamp.light_identifier%>
+        </div>
+        <div class="imageblock">
+          <%= image_tag("arrow_off.png") %>
+        </div>
+      <div class="lampform">
+        <%= render "/lamps/lampform", :lamp => @lamp %>
+      </div>
   </div>
+</div>
