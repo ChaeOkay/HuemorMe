@@ -12,7 +12,7 @@ var bridgeConfig = {
 					$.ajax({
 						url: 'http://' + ip + '/api',
 						method: 'POST',
-						data: JSON.stringify({"devicetype":"huemorme","username":"Huemoremesilly"})
+						data: JSON.stringify({"devicetype":"huemorme","username":"Huemormesilly"})
 					}).done(function(result){
 						if(result[0].error === undefined){
 							$("#getIP").hide()
@@ -39,7 +39,7 @@ var lampConfig = {
 			ip = $(this).data("ip")
 			$.ajax({
 				method: 'GET',
-				url: 'http://' + ip + '/api/Huemoremesilly/lights'
+				url: 'http://' + ip + '/api/Huemormesilly/lights'
 			}).done(function(result){
 				var lampArray = []
 				for (var key in result) {
