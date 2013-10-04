@@ -8,6 +8,7 @@ window.onload = function() {
 		  	var randomColor = '#' + (Math.random()*0xFFFFFF<<0).toString(16);
 		  	$.farbtastic('#colorpicker').setColor(randomColor)
 		  	$('.imageblock').css("backgroundColor", randomColor)
+		  	makeAjax();
 	}
 }
 
@@ -24,7 +25,7 @@ function getColor() {
 	return $.farbtastic('#colorpicker').hsl;
 }
 
-$("#colorpicker").mouseup(function(){
+function makeAjax() {
 	var hsl = getColor()
 	var hue = Math.floor(hsl[0]*65535);
 	var saturation = Math.floor(hsl[1]*255);
@@ -36,6 +37,10 @@ $("#colorpicker").mouseup(function(){
 	      	url: '/bridges/' + $self.data('bridge-id') + '/lamps/' + $self.data('lamp-id') + '/settings',
 	      	data: 'lamp[command]=set_color_and_sat&lamp[data][color]=' + hue + '&lamp[data][saturation]=' + saturation + '&lamp[data][brightness]=' + brightness
 	      })
+}
+
+$("#colorpicker").mouseup(function(){
+	makeAjax();
 })
 
 $(document).ready(function() {
