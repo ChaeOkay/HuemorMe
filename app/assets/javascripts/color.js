@@ -1,15 +1,15 @@
-// window.onload = function() {
-// 	window.addEventListener('shake', shakeEventDidOccur, false);
-// 		console.log("SHAKE")
-// 		//function to call when shake occurs
-// 		function shakeEventDidOccur () {
+window.onload = function() {
+	window.addEventListener('shake', shakeEventDidOccur, false);
+		console.log("SHAKE")
+		//function to call when shake occurs
+		function shakeEventDidOccur () {
 
-// 		  //put your own code here etc.
-// 		  	var randomColor = '#' + (Math.random()*0xFFFFFF<<0).toString(16);
-// 		  	$.farbtastic('#colorpicker').setColor(randomColor)
-// 		  	$('.imageblock').css("backgroundColor", randomColor)
-// 	}
-// }
+		  //put your own code here etc.
+		  	var randomColor = '#' + (Math.random()*0xFFFFFF<<0).toString(16);
+		  	$.farbtastic('#colorpicker').setColor(randomColor)
+		  	$('.imageblock').css("backgroundColor", randomColor)
+	}
+}
 
 function callback(color) {
 	// console.log("callback: " + $.farbtastic('#colorpicker').hsl)
