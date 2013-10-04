@@ -1,42 +1,48 @@
-<div class="row">
-  <div class="large-3 large-offset-9 columns">
-    <%= render '/layouts/login_form' %>
+<div class="background">
+  <div class="row">
+    <div class="form-background">
+      <div class="form-offset">
+        <!-- <div class="large-3 large-offset-9 columns"> -->
+          <%= render '/layouts/login_form' %>
+        <!-- </div> -->
+        <!-- <div class="large-4 large-offset-4 columns"> -->
+        <h1 class="font-white">Sign Up</h1>
+
+        <%= flash[:success] %>
+
+        <%= form_for @user, :url => users_path, :html => {:data => {:abide => ''}} do |f| %>
+
+          <%= f.text_field :first_name, placeholder: "first name" %>
+          <% unless @user.errors[:first_name].empty? %>
+            <%=raw("<small class='error' id='errorMessage'>") + @user.errors[:first_name].join(',') + raw("</small>") %>
+          <% end %>
+
+          <%= f.text_field :last_name, placeholder: "last name" %>
+          <% unless @user.errors[:last_name].empty? %>
+            <%=raw("<small class='error' display='none'>") + @user.errors[:last_name].join(',') + raw("</small>") %>
+          <% end %>
+
+          <%= f.email_field :email, placeholder: "email" %>
+          <% unless @user.errors[:email].empty? %>
+            <%=raw("<small class='error' display='none'>") + @user.errors[:email].join(',') + raw("</small>") %>
+          <% end %>
+
+          <%= f.password_field :password, placeholder: "password" %>
+          <% unless @user.errors[:password].empty? %>
+            <%=raw("<small class='error' display='none'>") + @user.errors[:password].join(',') + raw("</small>") %>
+          <% end %>
+
+
+          <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
+          <% unless @user.errors[:password_confirmation].empty? %>
+            <%=raw("<small class='error' display='none'>") + @user.errors[:password_confirmation].join(',') + raw("</small>") %>
+          <% end %>
+
+          <%= f.submit "sign up", class: "button" %>
+        <% end %>
+
+        <!-- </div> -->
+      </div>
+    </div>
   </div>
-<div class="large-4 large-offset-4 columns">
-  <h1>Sign Up</h1>
-
-  <%= flash[:success] %>
-
-  <%= form_for @user, :url => users_path, :html => {:data => {:abide => ''}} do |f| %>
-    
-    <%= f.text_field :first_name, placeholder: "first name" %>
-    <% unless @user.errors[:first_name].empty? %>
-      <%=raw("<small class='error' id='errorMessage'>") + @user.errors[:first_name].join(',') + raw("</small>") %>
-    <% end %>
-
-    <%= f.text_field :last_name, placeholder: "last name" %>
-    <% unless @user.errors[:last_name].empty? %>
-      <%=raw("<small class='error' display='none'>") + @user.errors[:last_name].join(',') + raw("</small>") %>
-    <% end %>
-    
-    <%= f.email_field :email, placeholder: "email" %>
-    <% unless @user.errors[:email].empty? %>
-      <%=raw("<small class='error' display='none'>") + @user.errors[:email].join(',') + raw("</small>") %>
-    <% end %>
-
-    <%= f.password_field :password, placeholder: "password" %>
-    <% unless @user.errors[:password].empty? %>
-      <%=raw("<small class='error' display='none'>") + @user.errors[:password].join(',') + raw("</small>") %>
-    <% end %>
-    
-
-    <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
-    <% unless @user.errors[:password_confirmation].empty? %>
-      <%=raw("<small class='error' display='none'>") + @user.errors[:password_confirmation].join(',') + raw("</small>") %>
-    <% end %>
-    
-    <%= f.submit "sign up", class: "button" %>
-  <% end %>
-
-</div>
 </div>
