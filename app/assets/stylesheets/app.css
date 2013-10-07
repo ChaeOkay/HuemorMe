@@ -29,7 +29,7 @@ img {
 }
 
 .background {
-  background: url('/images/backgroundblur.jpg') no-repeat fixed center
+  background: url('/images/backgroundblur.jpg') no-repeat fixed center;
 }
 
 .hiddenform {
