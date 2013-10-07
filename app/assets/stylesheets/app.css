@@ -11,10 +11,14 @@ img {
   position: relative;
 }
 
+#logout_btn {
+  color: rgb(185, 185, 185);
+  font-size: 9px;
+}
+
 .font-white {
   color: white;
 }
-
 
 .form-background {
   width: 400px;
@@ -25,7 +29,7 @@ img {
 }
 
 .background {
-  background: url('/images/backgroundblur.jpg') no-repeat fixed center
+  background: url('/images/backgroundblur.jpg') no-repeat fixed center;
 }
 
 .hiddenform {
