@@ -7,9 +7,9 @@
 		<!-- scanning for lamps -->
 
 
-		<p><button type="button" class="button">Click here to find your lamps:</button></p>
+		<p><button type="button" class="button round">Click here to find your lamps</button></p>
 
 		<%= button_to "Add Lamps", {:controller => :lamps,
-		    :action => 'create', :bridge_id => @bridge.id }, :method => 'post', id: "addLamps", data: {ip: "#{current_user.bridge.ip}"}, class: "button" %>
+		    :action => 'create', :bridge_id => @bridge.id }, :method => 'post', id: "addLamps", data: {ip: "#{current_user.bridge.ip}"}, class: "button round" %>
 	</div>
 </div>
