@@ -44,7 +44,8 @@ $("#colorpicker").mouseup(function(){
 })
 
 $(document).ready(function() {
-	$('#colorpicker').addTouch();
-	$.farbtastic('#colorpicker', callback)
+	if ($('#colorpicker').length > 0) {
+		$('#colorpicker').addTouch();
+		$.farbtastic('#colorpicker', callback)
+}
 });
-
