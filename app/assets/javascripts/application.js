@@ -11,14 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.all
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require jqueryuiipad
 //= require foundation
-//= require turbolinks
-//= require lamps
+//= require_self
 //= require farbtastic
-//= require_tree .
 //= require shake
+//= require_tree .
 
-$(document).foundation()
+$(document).foundation();

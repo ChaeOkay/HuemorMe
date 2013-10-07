@@ -102,3 +102,7 @@ img {
 .farbtastic {
   margin: 0 auto;
 }
+
+#lamp-orbit {
+  display: none;
+}
