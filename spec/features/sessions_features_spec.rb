@@ -23,7 +23,7 @@ feature 'Sessions' do
       logged_in?(true)
       visit user_path(user)
       logged_in?(false)
-      click_button('logout')
+      click_link('logout')
       page.current_path.should eq new_user_path
     end
   end
