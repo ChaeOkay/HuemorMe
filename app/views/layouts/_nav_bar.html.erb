@@ -1,17 +1,16 @@
-<div class="contain-to-grid">
-	<nav class="top-bar">
-		<ul class="title-area">
-			<li class="name">
-				<h1><%= link_to "HueMore Me", root_path %></h1>
-			</li>
-		</ul>
-		<ul class="toggle-topbar">
-			<li class="divider">
-				<% if logged_in? %>
-					<%= link_to "logout", signout_path, method: "delete", id: "logout_btn" %>
-				<% end %>
-			</li>
-		</ul>
-	</nav>
+<div class="row header-bkgnd">
+		<div class="large-6 columns">
+			<h4 class="font-white"><%= link_to "HueMore Me", root_path %></h4>
+		</div>
+
+		<div class="large-3 columns">
+			<ul class="inline-list right">
+				<li class="font-white">
+					<% if logged_in? %>
+						<%= link_to "logout", signout_path, method: "delete", id: "logout_btn" %>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 </div>
 
