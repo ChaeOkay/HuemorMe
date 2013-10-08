@@ -22,4 +22,5 @@ Huemorme::Application.routes.draw do
   get '/api/:secret_token', to: 'apis#show', via: 'get'
   get '/setup', to: 'users#setup'
   get '/download', to: 'users#download'
+  get '/tour', to: 'tours#index'
 end

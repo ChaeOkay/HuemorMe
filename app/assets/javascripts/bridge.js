@@ -55,7 +55,6 @@ var lampConfig = {
 	}
 }
 
-
 $(document).ready(function(){
 	bridgeConfig.register()
 	lampConfig.search()
