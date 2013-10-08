@@ -13,6 +13,14 @@ img {
   background-color: black;
 }
 
+.splash-body {
+  padding-bottom: 40px;
+}
+
+.splash-ast {
+  padding-top: 235px;
+}
+
 #logout_btn {
   color: rgb(185, 185, 185);
   font-size: 9px;
