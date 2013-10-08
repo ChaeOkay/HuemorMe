@@ -17,6 +17,7 @@ coverage
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+logfile
 
 .DS_Store
 
