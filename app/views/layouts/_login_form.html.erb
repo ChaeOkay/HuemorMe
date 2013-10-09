@@ -1,5 +1,7 @@
 <h5 class="font-white">Login</h5>
-<%= flash[:notice] %>
+<div class="font-white">
+  <%= flash[:notice] %>
+</div>
 
 <%= form_for :session, :url => sessions_path do |f| %>
   <%= f.text_field :email, placeholder: "email" %>
