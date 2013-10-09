@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       redirect_to new_user_bridge_path(current_user)
     else
       @user = current_user
-      @lamps = current_user.lamps
+      @lamps = current_user.lamps.order('light_identifier')
       @bridge = current_user.bridge
     end
   end
