@@ -64,7 +64,7 @@ describe UsersController do
       let(:user) { create(:user, :with_bridge) }
       it "assigns @lamps" do
         get :show, id: user.id
-        expect(assigns(:lamps)).to eq user.lamps
+        expect(assigns(:lamps)).to eq user.lamps.order("light_identifier")
       end
 
       it "assigns @bridge" do
