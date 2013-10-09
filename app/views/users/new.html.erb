@@ -1,23 +1,7 @@
 <div class="background">
-
   <div class="row">
-    <div class="large-6 columns left">
-      <div class="font-white tagline">
-        <div class="splash-body">
-          Access your Philips Hue LED light bulbs from anywhere in the world.
-        </div>
-        <div class="splash-body">
-          Program the lighting conditions from our web app to control your lights.
-        </div>
-        <div class="splash-body">
-          Signup to install a custom daemon on your local network, which runs on a Raspberry Pi.*
-        </div>
-        <div class="splash-ast">
-          * Or whatever Unix-y system you want.
-        </div>
-      </div>
-    </div>
 
+    <div class="large-3 columns">
       <div class="form-background">
         <div class="form-offset">
           <%= render '/layouts/login_form' %>
@@ -27,4 +11,14 @@
       </div>
     </div>
 
+    <div class="large-9 columns show-for-medium-up">
+      <div class="tour-background">
+        <div class="tagline">
+          <%= render "tour" %>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 </div>
