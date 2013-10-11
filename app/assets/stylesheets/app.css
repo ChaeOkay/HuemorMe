@@ -10,9 +10,31 @@ img {
   position: relative;
 }
 
+/* Navbar */
+
 .header-bkgnd {
   background-color: black;
 }
+
+#logout_btn {
+  color: rgb(185, 185, 185);
+  font-size: 9px;
+}
+
+/* Footer */
+
+footer {
+  background: black;
+  padding: 20px 0 0 0;
+}
+
+.namelist li {
+  display: inline-block;
+  padding: 0 8px 0 8px;
+  color: rgb(150, 150, 150);
+}
+
+/* Splash page */
 
 .splash-text {
   margin: 80px;
@@ -27,16 +49,9 @@ img {
   padding-top: 80px;
 }
 
-#logout_btn {
-  color: rgb(185, 185, 185);
-  font-size: 9px;
-}
 
 .tagline{
-  padding-top: 100px;
-  padding-left: 10px;
-  padding-right: 20px;
-  padding-bottom: 50px;
+  padding: 100px 20px 50px 10px;
   font-size: 1.5em;
 }
 
@@ -58,6 +73,8 @@ img {
   background-color: rgba(0, 0, 0, .4);
   border-radius: 20px;
 }
+
+/* root page */
 
 .background {
   background: url('/images/backgroundblur.jpg') no-repeat fixed center;
