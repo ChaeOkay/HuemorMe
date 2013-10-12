@@ -3,6 +3,8 @@ var bridgeConfig = {
 	register: function(){
 		$("#getIP").on("click", function(e){
 			e.preventDefault()
+			$('#flash').remove()
+
 			$.ajax({
 				url: 'https://www.meethue.com/api/nupnp',
 				type: 'GET'
@@ -22,12 +24,12 @@ var bridgeConfig = {
 							$("#deviceId").val(deviceId)
 						} else {
 							$("body").append(
-								"<small class=error>" + result[0].error.description + "</small>"
+								"<small class=error id=flash>" + result[0].error.description + "</small>"
 								)
 						}
 					})
 			})
-		})	
+		})
 	}
 }
 
