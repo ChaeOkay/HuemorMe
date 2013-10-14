@@ -1,0 +1,4 @@
+<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: { method: 'GET', class: "colorloop"}, remote: true)  do |f| %>
+  <%= f.hidden_field :command, value: "#{lamp.effect == 'colorloop' ? 'turn_colorloop_off' : 'turn_colorloop_on'}", class: "colorloop_hidden_value" %>
+  <%= f.submit "Turn colorloop #{lamp.say_colorloop}?", class: "tiny button radius" %>
+<% end %>
