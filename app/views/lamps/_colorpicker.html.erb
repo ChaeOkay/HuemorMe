@@ -1,0 +1,4 @@
+<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: {method: 'GET', class: "brightness"})  do |f| %>
+  <%= f.hidden_field(:command, value: "set_color", data: {bridge_id: "#{lamp.bridge.id}", lamp_id: "#{lamp.id}"}, id: "color_setter" ) %>
+  <div id="colorpicker"></div><form><input type="hidden" id="color" name="color" value="#123456" /></form>
+<% end %>

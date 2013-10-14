@@ -1,0 +1,4 @@
+<%= form_for([lamp.bridge, lamp], url: settings_bridge_lamp_path(lamp.bridge, lamp), html: { method: 'GET', class: "on_off"}, remote: true)  do |f| %>
+  <%= f.hidden_field :command, value: "#{lamp.on ? 'turn_off' : 'turn_on'}", class: "submit_hidden_value" %>
+  <%= f.submit "Turn #{lamp.say_on_off}?" %>
+<% end %>
