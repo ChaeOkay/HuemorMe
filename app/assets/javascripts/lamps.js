@@ -11,12 +11,7 @@ Lamp.prototype = {
 		this.on_off()
 		this.set_color_toggle_on_off_listener();
 	},
-	// init: function() {
-	// 	this.adjustBrightness();
-	// 	this.setBrightnessValue();
-	// 	this.toggle_on_off();
-	// 	this.toggle_colorloop_on_off();
-	// },
+
 	set_color_toggle_on_off_listener: function(){
 		var self = this
 		self.$getColorOnOffForm().on('ajax:success', function(){
@@ -114,24 +109,6 @@ Lamp.prototype = {
 	getOnOffButton:function(){
 		return this.$getOnOffForm().find('.tiny.button')
 	}
-		// $button = $(this).children().next().next()
-		// if ($button.val() === "Turn on?"){
-		// 	$button.val("Turn off?")
-		// }
-		// else {
-		// 	$button.val("Turn on?")
-		// }
-	// toggle_colorloop_on_off: function(){
-	// 	$(".colorloop").on('ajax:success', function(){
-	// 	$button = $(this).children().next().next()
-	// 	if ($button.val() === "Turn colorloop on?"){
-	// 		$button.val("Turn colorloop off?")
-	// 	}
-	// 	else {
-	// 		$button.val("Turn colorloop on?")
-	// 	}
-	// })
-	// }
 }
 
 $(document).ready(function(){

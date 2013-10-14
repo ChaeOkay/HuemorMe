@@ -37,22 +37,37 @@ footer {
 /* Splash page */
 
 .splash-text {
-  margin: 80px;
+  padding: 20px 80px 30px 80px;
+  background-color: rgba(150, 150, 150, .05);
 }
 
 .splash-body {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 
 .splash-ast {
-  padding-top: 80px;
+  padding-top: 5px;
+  clear: left;
 }
 
+.splash-img-container {
+  padding-top: 30px;
+}
+
+.splash-img {
+  float: left;
+  border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 12px;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, .5);
+}
 
 .tagline{
   padding: 100px 20px 50px 10px;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .font-white {
